@@ -2,50 +2,98 @@
 @tailwind components;
 @tailwind utilities;
 
+Thought for 1 secondGreat! Now let's move on to the next step:
+
+## Step 3: Update the CSS Variables in globals.css
+
+1. **Go back to the main repository page**:
+
+1. Click on the repository name "gaelica-finance" at the top of the page
+2. This will take you back to the main view showing all folders and files
+
+
+
+2. **Navigate to the globals.css file**:
+
+1. Look for a folder named "app" in the list
+2. Click on the "app" folder to open it
+3. Look for a file named "globals.css"
+4. Click on this file to open it
+
+
+
+3. **Edit the file**:
+
+1. Look for the pencil icon (✏️) in the upper right area
+2. Click this pencil icon to enter edit mode
+3. The file content will become editable
+
+
+
+4. **Find the CSS variables section**:
+
+1. Look for a section that starts with `@layer base {` and contains `:root {`
+2. This section defines your website's colors
+
+
+
+5. **Replace the CSS variables section**:
+
+1. Select everything between (and including) `@layer base {` and the matching closing `}`
+2. Delete this selected content
+3. Copy the following code (select all of it, then right-click and choose "Copy" or press Ctrl+C):
+
+
+
+
+
+```css
 @layer base {
   :root {
+    /* Light mode colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 0 0% 10%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 0 0% 10%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 0 0% 61%; /* #9b9b9b */
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 0 0% 61%; /* #9b9b9b */
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 0 0% 40%; /* #666666 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 40%; /* #666666 */
+    --accent-foreground: 0 0% 10%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 0 0% 61%; /* #9b9b9b */
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 40%; /* #666666 */
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 0 0% 8%; /* #141414 */
-    --foreground: 0 0% 98%; /* #fafafa */
-    --card: 0 0% 8%; /* #141414 */
-    --card-foreground: 0 0% 98%; /* #fafafa */
-    --popover: 0 0% 8%; /* #141414 */
-    --popover-foreground: 0 0% 98%; /* #fafafa */
-    --primary: 0 0% 61%; /* #9b9b9b */
-    --primary-foreground: 0 0% 8%; /* #141414 */
-    --secondary: 25 7% 25%; /* #423e3a */
-    --secondary-foreground: 0 0% 98%; /* #fafafa */
-    --muted: 25 7% 25%; /* #423e3a */
-    --muted-foreground: 0 0% 61%; /* #9b9b9b */
-    --accent: 0 0% 61%; /* #9b9b9b */
-    --accent-foreground: 0 0% 98%; /* #fafafa */
+    /* Dark mode colors */
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 252 59% 48%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 252 59% 48%;
+    --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 45%; /* #737373 */
-    --input: 0 0% 45%; /* #737373 */
-    --ring: 0 0% 61%; /* #9b9b9b */
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 252 59% 48%;
   }
 }
 
