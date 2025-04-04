@@ -1,6 +1,7 @@
 # Gaelica Finance Website PRD
 
 ## Project Overview
+
 A professional website for Gaelica Finance, an advisory company, built using Next.js, featuring modern design, responsive layout, and essential business information sections.
 
 ## Development Workflow
@@ -88,3 +89,29 @@ A professional website for Gaelica Finance, an advisory company, built using Nex
 3. Do you have specific ideas for any of the upcoming features?
 
 I'm here to guide you through each step, explaining everything in clear terms while maintaining enterprise-grade development standards.
+
+## Development Communication Protocol
+
+### Efficient Interaction Guidelines
+1. **Clear Instructions**
+   - Step-by-step commands
+   - Expected outcomes
+   - Verification steps
+
+2. **Problem Solving Flow**
+   - Identify issue
+   - Propose solution
+   - Verify fix
+   - Document resolution
+
+3. **Communication Best Practices**
+   - Minimize token usage
+   - Focus on key information
+   - Clear action items
+   - Verify understanding
+
+4. **Documentation**
+   - Track resolved issues
+   - Document solutions
+   - Maintain best practices
+   - Update PRD regularly
