@@ -115,3 +115,9 @@ I'm here to guide you through each step, explaining everything in clear terms wh
    - Document solutions
    - Maintain best practices
    - Update PRD regularly
+
+5. **Debugging Efficiency**
+   - Request full code context immediately when stuck in loops
+   - Avoid multiple iterations of partial solutions
+   - Focus on root cause analysis before attempting fixes
+   - Maintain clear communication about what has been tried

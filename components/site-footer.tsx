@@ -1,38 +1,59 @@
+"use client"
+
 import Link from "next/link"
+import Image from "next/image"
+import { useTheme } from "next-themes"
+import { useState, useEffect } from "react"
 
 export function SiteFooter() {
+  const { theme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   return (
-    <footer className="bg-[#141414] border-t border-[#737373]">
+    <footer className="bg-background border-t border-muted">
       <div className="container py-12">
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h3 className="text-lg font-medium text-[#fafafa] mb-4">Gaelica Finance</h3>
-            <p className="text-sm text-[#9b9b9b] mb-6">
+            <div className="relative w-full max-w-[240px]">
+              <Image 
+                src={mounted ? (theme === "dark" ? "/images/logo.png" : "/images/logolightmode.png") : "/images/logo.png"}
+                alt="Gaelica Finance" 
+                width={240}
+                height={80}
+                className="w-full h-auto mb-4"
+                priority
+              />
+            </div>
+            <p className="text-sm text-muted-foreground mb-6">
               Premium financial consulting with data-driven insights for businesses of all sizes.
             </p>
-            <p className="text-sm text-[#9b9b9b]">São Paulo, Brazil</p>
+            <p className="text-sm text-muted-foreground">São Paulo, Brazil</p>
           </div>
 
           <div>
-            <h3 className="text-lg font-medium text-[#fafafa] mb-4">Services</h3>
+            <h3 className="text-lg font-medium text-foreground mb-4">Services</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="#" className="text-sm text-[#9b9b9b] hover:text-[#c3c3c3] transition-colors">
+                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Financial Analysis
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm text-[#9b9b9b] hover:text-[#c3c3c3] transition-colors">
+                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Investment Strategy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm text-[#9b9b9b] hover:text-[#c3c3c3] transition-colors">
+                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Portfolio Optimization
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm text-[#9b9b9b] hover:text-[#c3c3c3] transition-colors">
+                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Risk Assessment
                 </Link>
               </li>
@@ -40,25 +61,25 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h3 className="text-lg font-medium text-[#fafafa] mb-4">Company</h3>
+            <h3 className="text-lg font-medium text-foreground mb-4">Company</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="#" className="text-sm text-[#9b9b9b] hover:text-[#c3c3c3] transition-colors">
+                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm text-[#9b9b9b] hover:text-[#c3c3c3] transition-colors">
+                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Our Team
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm text-[#9b9b9b] hover:text-[#c3c3c3] transition-colors">
+                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Careers
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm text-[#9b9b9b] hover:text-[#c3c3c3] transition-colors">
+                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Contact
                 </Link>
               </li>
@@ -66,20 +87,20 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h3 className="text-lg font-medium text-[#fafafa] mb-4">Legal</h3>
+            <h3 className="text-lg font-medium text-foreground mb-4">Legal</h3>
             <ul className="space-y-3">
               <li>
-                <Link href="#" className="text-sm text-[#9b9b9b] hover:text-[#c3c3c3] transition-colors">
+                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm text-[#9b9b9b] hover:text-[#c3c3c3] transition-colors">
+                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-sm text-[#9b9b9b] hover:text-[#c3c3c3] transition-colors">
+                <Link href="#" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
                   Cookie Policy
                 </Link>
               </li>
@@ -87,10 +108,10 @@ export function SiteFooter() {
           </div>
         </div>
 
-        <div className="border-t border-[#737373] mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-[#9b9b9b]">© 2025 Gaelica Finance. All rights reserved.</p>
+        <div className="border-t border-muted mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-sm text-muted-foreground">© 2025 Gaelica Finance. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <Link href="#" className="text-[#9b9b9b] hover:text-[#c3c3c3]">
+            <Link href="#" className="text-muted-foreground hover:text-foreground">
               <span className="sr-only">Twitter</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +127,7 @@ export function SiteFooter() {
                 <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
               </svg>
             </Link>
-            <Link href="#" className="text-[#9b9b9b] hover:text-[#c3c3c3]">
+            <Link href="#" className="text-muted-foreground hover:text-foreground">
               <span className="sr-only">LinkedIn</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -124,7 +145,7 @@ export function SiteFooter() {
                 <circle cx="4" cy="4" r="2"></circle>
               </svg>
             </Link>
-            <Link href="#" className="text-[#9b9b9b] hover:text-[#c3c3c3]">
+            <Link href="#" className="text-muted-foreground hover:text-foreground">
               <span className="sr-only">Instagram</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

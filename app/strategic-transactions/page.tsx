@@ -25,7 +25,7 @@ function BusinessCycleCurve() {
   return (
     <div className="relative w-full max-w-full mx-auto">
       <Image
-        src="/images/business-cycle-curve.png"
+        src="/images/Grafico de curva ingles.png"
         alt="Business Cycle Curve"
         width={1200}
         height={600}
@@ -72,7 +72,7 @@ function MoonCycleVisualization() {
       <div className="relative w-full">
         <div className="flex justify-center items-center py-8">
           <Image
-            src="/images/moon-cycle.png"
+            src="/images/Ciclo da lua.png"
             alt="Market Cycle"
             width={600}
             height={600}
@@ -220,7 +220,13 @@ function SiteFooter() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="text-xl font-bold text-[#fafafa]">Gaelica Finance</div>
+              <Image
+                src="/images/logo.png"
+                alt="Gaelica Finance"
+                width={240}
+                height={80}
+                className="mb-4"
+              />
             </div>
             <p className="text-sm text-[#9b9b9b]">
               Premium financial consulting with data-driven insights to help businesses make informed decisions.
@@ -762,12 +768,12 @@ export default function StrategicTransactionsPage() {
                 <div>
                   <h2 className="text-3xl font-bold text-[#fafafa] mb-6">ZOPA & BATNA: Maximizing Deal Value</h2>
 
-                  <div className="relative w-full mb-6">
+                  <div className="relative w-full mb-6 max-w-[440px] mx-auto">
                     <Image
-                      src="/images/zopa-graph.png"
+                      src="/images/ZOPA - ingles fundo escuro final.png"
                       alt="ZOPA & BATNA Graph"
-                      width={800}
-                      height={320}
+                      width={440}
+                      height={176}
                       className="w-full h-auto"
                       priority
                     />

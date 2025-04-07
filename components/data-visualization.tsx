@@ -3,12 +3,15 @@
 import { useState, useRef, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { useTheme } from "next-themes"
 
 export function DataVisualization() {
   const [activeTab, setActiveTab] = useState("performance")
 
   const chartRef = useRef<HTMLCanvasElement>(null)
   const pieChartRef = useRef<HTMLCanvasElement>(null)
+
+  const { theme } = useTheme()
 
   useEffect(() => {
     // Mock data for charts
@@ -21,8 +24,8 @@ export function DataVisualization() {
       // Clear previous chart
       ctx.clearRect(0, 0, chartRef.current.width, chartRef.current.height)
 
-      const textColor = "#ffffff"
-      const gridColor = "rgba(255, 255, 255, 0.1)"
+      const textColor = theme === "light" ? "#141414" : "#ffffff"
+      const gridColor = theme === "light" ? "rgba(0, 0, 0, 0.1)" : "rgba(255, 255, 255, 0.1)"
 
       // Chart dimensions
       const width = chartRef.current.width
@@ -127,7 +130,7 @@ export function DataVisualization() {
       // Clear previous chart
       ctx.clearRect(0, 0, pieChartRef.current.width, pieChartRef.current.height)
 
-      const textColor = "#ffffff"
+      const textColor = theme === "light" ? "#141414" : "#ffffff"
 
       // Chart dimensions
       const width = pieChartRef.current.width
@@ -197,74 +200,74 @@ export function DataVisualization() {
     } else if (activeTab === "allocation") {
       renderAllocationChart()
     }
-  }, [activeTab])
+  }, [activeTab, theme])
 
   return (
-    <section id="approach" className="py-20 bg-[#141414]">
+    <section id="approach" className="py-20 bg-background">
       <div className="container">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center rounded-full border border-[#9b9b9b]/30 bg-[#9b9b9b]/10 px-3 py-1 text-sm text-[#9b9b9b] mb-4">
+          <div className="inline-flex items-center rounded-full border border-muted/30 bg-muted/10 px-3 py-1 text-sm text-muted-foreground mb-4">
             <span className="mr-1">•</span> Our Approach
           </div>
-          <h2 className="heading-lg text-[#fafafa]">Data-Driven Methodology</h2>
-          <p className="mt-4 body-lg max-w-3xl mx-auto text-[#9b9b9b]">
+          <h2 className="heading-lg text-foreground">Data-Driven Methodology</h2>
+          <p className="mt-4 body-lg max-w-3xl mx-auto text-muted-foreground">
             We leverage sophisticated data analysis and visualization to provide actionable insights
           </p>
         </div>
 
         <div className="grid gap-8 lg:grid-cols-2">
-          <Card className="overflow-hidden border-[#737373] bg-[#1a1a1a]">
+          <Card className="overflow-hidden border-border bg-card">
             <CardHeader>
-              <CardTitle className="text-[#fafafa]">How We Work</CardTitle>
-              <CardDescription className="text-[#9b9b9b]">
+              <CardTitle className="text-foreground">How We Work</CardTitle>
+              <CardDescription className="text-muted-foreground">
                 Our methodology combines financial expertise with advanced data analytics
               </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#9b9b9b]/10 flex items-center justify-center">
-                    <span className="font-bold text-[#9b9b9b]">1</span>
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-muted/10 flex items-center justify-center">
+                    <span className="font-bold text-muted-foreground">1</span>
                   </div>
                   <div>
-                    <h4 className="font-medium text-[#fafafa]">Data Collection</h4>
-                    <p className="text-sm text-[#9b9b9b] mt-1">
+                    <h4 className="font-medium text-foreground">Data Collection</h4>
+                    <p className="text-sm text-muted-foreground mt-1">
                       We gather comprehensive financial data from multiple sources to ensure a complete picture.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#9b9b9b]/10 flex items-center justify-center">
-                    <span className="font-bold text-[#9b9b9b]">2</span>
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-muted/10 flex items-center justify-center">
+                    <span className="font-bold text-muted-foreground">2</span>
                   </div>
                   <div>
-                    <h4 className="font-medium text-[#fafafa]">Advanced Analysis</h4>
-                    <p className="text-sm text-[#9b9b9b] mt-1">
+                    <h4 className="font-medium text-foreground">Advanced Analysis</h4>
+                    <p className="text-sm text-muted-foreground mt-1">
                       Our proprietary algorithms analyze patterns and trends to identify opportunities and risks.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#9b9b9b]/10 flex items-center justify-center">
-                    <span className="font-bold text-[#9b9b9b]">3</span>
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-muted/10 flex items-center justify-center">
+                    <span className="font-bold text-muted-foreground">3</span>
                   </div>
                   <div>
-                    <h4 className="font-medium text-[#fafafa]">Strategic Recommendations</h4>
-                    <p className="text-sm text-[#9b9b9b] mt-1">
+                    <h4 className="font-medium text-foreground">Strategic Recommendations</h4>
+                    <p className="text-sm text-muted-foreground mt-1">
                       We develop actionable strategies based on data insights and financial expertise.
                     </p>
                   </div>
                 </div>
 
                 <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#9b9b9b]/10 flex items-center justify-center">
-                    <span className="font-bold text-[#9b9b9b]">4</span>
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-muted/10 flex items-center justify-center">
+                    <span className="font-bold text-muted-foreground">4</span>
                   </div>
                   <div>
-                    <h4 className="font-medium text-[#fafafa]">Implementation & Monitoring</h4>
-                    <p className="text-sm text-[#9b9b9b] mt-1">
+                    <h4 className="font-medium text-foreground">Implementation & Monitoring</h4>
+                    <p className="text-sm text-muted-foreground mt-1">
                       We help implement strategies and continuously monitor performance with real-time dashboards.
                     </p>
                   </div>
@@ -273,25 +276,25 @@ export function DataVisualization() {
             </CardContent>
           </Card>
 
-          <Card className="border-[#737373] bg-[#1a1a1a]">
+          <Card className="border-border bg-card">
             <CardHeader>
-              <CardTitle className="text-[#fafafa]">Data Visualization</CardTitle>
-              <CardDescription className="text-[#9b9b9b]">
+              <CardTitle className="text-foreground">Data Visualization</CardTitle>
+              <CardDescription className="text-muted-foreground">
                 Interactive charts that help you understand complex financial data
               </CardDescription>
             </CardHeader>
             <CardContent>
               <Tabs defaultValue="performance" value={activeTab} onValueChange={setActiveTab} className="w-full">
-                <TabsList className="mb-6 bg-[#423e3a] w-full justify-start">
+                <TabsList className="mb-6 bg-muted w-full justify-start">
                   <TabsTrigger
                     value="performance"
-                    className="data-[state=active]:bg-[#9b9b9b]/20 data-[state=active]:text-[#9b9b9b]"
+                    className="data-[state=active]:bg-muted/20 data-[state=active]:text-foreground"
                   >
                     Performance
                   </TabsTrigger>
                   <TabsTrigger
                     value="allocation"
-                    className="data-[state=active]:bg-[#9b9b9b]/20 data-[state=active]:text-[#9b9b9b]"
+                    className="data-[state=active]:bg-muted/20 data-[state=active]:text-foreground"
                   >
                     Asset Allocation
                   </TabsTrigger>
