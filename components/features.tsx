@@ -23,10 +23,17 @@ export function Features() {
               <Scale className="h-6 w-6 text-muted-foreground" />
             </div>
             <h3 className="text-xl font-bold mb-3 text-foreground">Valuation</h3>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground mb-4">
               Comprehensive business valuation services using advanced financial models to determine accurate and
               defensible company valuations.
             </p>
+            <Link
+              href="/business-valuation"
+              className="text-sm font-medium text-primary hover:text-primary/80 transition-colors flex items-center"
+              scroll={false}
+            >
+              Learn more <ArrowRight className="ml-1 h-3 w-3" />
+            </Link>
           </div>
 
           {/* New M&A Box (Second) with Link */}
@@ -41,7 +48,7 @@ export function Features() {
             </p>
             <Link
               href="/strategic-transactions"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center"
+              className="text-sm font-medium text-primary hover:text-primary/80 transition-colors flex items-center"
               scroll={false}
             >
               Learn more <ArrowRight className="ml-1 h-3 w-3" />
