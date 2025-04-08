@@ -49,7 +49,7 @@ function BusinessCycleCurve() {
 // Moon Cycle Visualization Component
 function MoonCycleVisualization() {
   const [activeBox, setActiveBox] = useState<number | null>(null)
-
+  
   const cyclePhases = [
     {
       id: 0,
@@ -94,10 +94,10 @@ function MoonCycleVisualization() {
         {cyclePhases.map((phase) => (
           <div
             key={phase.id}
-            className={`absolute w-32 p-3 rounded-lg border transition-all duration-300 cursor-pointer
+            className={`absolute w-24 sm:w-32 p-2 sm:p-3 rounded-lg border transition-all duration-300 cursor-pointer
               ${
                 activeBox === phase.id
-                  ? "bg-background/90 border-border scale-110 z-10"
+                  ? "bg-background/90 border-border scale-105 sm:scale-110 z-10"
                   : "bg-background/70 border-border hover:border-border/50"
               }`}
             style={{
@@ -108,8 +108,8 @@ function MoonCycleVisualization() {
             onMouseEnter={() => setActiveBox(phase.id)}
             onMouseLeave={() => setActiveBox(null)}
           >
-            <h4 className="font-bold text-foreground text-center">{phase.name}</h4>
-            <p className="text-xs text-muted-foreground mt-1 text-center">{phase.description}</p>
+            <h4 className="font-bold text-foreground text-center text-xs sm:text-sm">{phase.name}</h4>
+            <p className="text-[10px] sm:text-xs text-muted-foreground mt-1 text-center">{phase.description}</p>
           </div>
         ))}
       </div>
