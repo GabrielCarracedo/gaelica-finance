@@ -4,8 +4,8 @@ import { DataVisualization } from "@/components/data-visualization"
 import { Testimonials } from "@/components/testimonials"
 import { CallToAction } from "@/components/call-to-action"
 import { SiteFooter } from "@/components/site-footer"
-import { Link } from "@/components/ui/link"
 import { ThemeToggle } from "@/components/theme-toggle"
+import Link from "next/link"
 
 export default function Home() {
   return (

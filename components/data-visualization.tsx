@@ -7,13 +7,23 @@ import { useTheme } from "next-themes"
 
 export function DataVisualization() {
   const [activeTab, setActiveTab] = useState("performance")
+  const [mounted, setMounted] = useState(false)
 
   const chartRef = useRef<HTMLCanvasElement>(null)
   const pieChartRef = useRef<HTMLCanvasElement>(null)
 
-  const { theme } = useTheme()
+  const { theme, resolvedTheme } = useTheme()
+  
+  // Use resolvedTheme for more reliable theme detection
+  const currentTheme = resolvedTheme || theme
 
   useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  useEffect(() => {
+    if (!mounted) return
+    
     // Mock data for charts
     const renderPerformanceChart = () => {
       if (!chartRef.current) return
@@ -24,8 +34,8 @@ export function DataVisualization() {
       // Clear previous chart
       ctx.clearRect(0, 0, chartRef.current.width, chartRef.current.height)
 
-      const textColor = theme === "light" ? "#141414" : "#ffffff"
-      const gridColor = theme === "light" ? "rgba(0, 0, 0, 0.1)" : "rgba(255, 255, 255, 0.1)"
+      const textColor = currentTheme === "light" ? "#141414" : "#ffffff"
+      const gridColor = currentTheme === "light" ? "rgba(0, 0, 0, 0.1)" : "rgba(255, 255, 255, 0.1)"
 
       // Chart dimensions
       const width = chartRef.current.width
@@ -99,26 +109,17 @@ export function DataVisualization() {
       data.forEach((value, i) => {
         const x = padding + i * xStep
         const y = height - padding - (value / 100) * (height - 2 * padding)
-        ctx.lineTo(x, y)
+
+        if (i === 0) {
+          ctx.lineTo(x, y)
+        } else {
+          ctx.lineTo(x, y)
+        }
       })
 
       ctx.lineTo(width - padding, height - padding)
       ctx.closePath()
       ctx.fill()
-
-      // Add data points
-      data.forEach((value, i) => {
-        const x = padding + i * xStep
-        const y = height - padding - (value / 100) * (height - 2 * padding)
-
-        ctx.beginPath()
-        ctx.arc(x, y, 5, 0, Math.PI * 2)
-        ctx.fillStyle = "#9b9b9b"
-        ctx.fill()
-        ctx.strokeStyle = "#141414"
-        ctx.lineWidth = 2
-        ctx.stroke()
-      })
     }
 
     const renderAllocationChart = () => {
@@ -130,28 +131,27 @@ export function DataVisualization() {
       // Clear previous chart
       ctx.clearRect(0, 0, pieChartRef.current.width, pieChartRef.current.height)
 
-      const textColor = theme === "light" ? "#141414" : "#ffffff"
+      const textColor = currentTheme === "light" ? "#141414" : "#ffffff"
 
       // Chart dimensions
       const width = pieChartRef.current.width
       const height = pieChartRef.current.height
       const centerX = width / 2
       const centerY = height / 2
-      const radius = Math.min(width, height) / 2 - 60
+      const radius = Math.min(width, height) / 2 - 40
 
-      // Data for pie chart
+      // Data
       const data = [
-        { label: "Stocks", value: 45, color: "#9b9b9b" },
-        { label: "Bonds", value: 30, color: "#8f8f8f" },
-        { label: "Real Estate", value: 15, color: "#423e3a" },
-        { label: "Cash", value: 10, color: "#adadad" },
+        { value: 40, color: "#9b9b9b", label: "Equities" },
+        { value: 30, color: "#7a7a7a", label: "Fixed Income" },
+        { value: 20, color: "#5a5a5a", label: "Real Estate" },
+        { value: 10, color: "#3a3a3a", label: "Commodities" },
       ]
 
+      // Draw pie chart
       let startAngle = 0
-
-      // Draw pie slices
       data.forEach((item) => {
-        const sliceAngle = (item.value / 100) * Math.PI * 2
+        const sliceAngle = (2 * Math.PI * item.value) / 100
 
         ctx.beginPath()
         ctx.moveTo(centerX, centerY)
@@ -161,46 +161,42 @@ export function DataVisualization() {
         ctx.fillStyle = item.color
         ctx.fill()
 
-        // Add slice labels
-        const labelAngle = startAngle + sliceAngle / 2
-        const labelRadius = radius * 0.7
-        const labelX = centerX + Math.cos(labelAngle) * labelRadius
-        const labelY = centerY + Math.sin(labelAngle) * labelRadius
-
-        ctx.fillStyle = "#ffffff"
-        ctx.font = "bold 14px Inter, sans-serif"
-        ctx.textAlign = "center"
-        ctx.textBaseline = "middle"
-        ctx.fillText(`${item.value}%`, labelX, labelY)
-
         startAngle += sliceAngle
       })
 
-      // Add legend
+      // Draw legend
       const legendX = width - 150
       const legendY = 50
+      const legendItemHeight = 25
 
       data.forEach((item, i) => {
-        const y = legendY + i * 30
-
         // Color box
         ctx.fillStyle = item.color
-        ctx.fillRect(legendX, y, 20, 20)
+        ctx.fillRect(legendX, legendY + i * legendItemHeight, 15, 15)
 
         // Label
         ctx.fillStyle = textColor
-        ctx.font = "14px Inter, sans-serif"
+        ctx.font = "12px Inter, sans-serif"
         ctx.textAlign = "left"
-        ctx.fillText(item.label, legendX + 30, y + 15)
+        ctx.fillText(
+          `${item.label} (${item.value}%)`,
+          legendX + 25,
+          legendY + i * legendItemHeight + 12
+        )
       })
     }
 
+    // Render charts based on active tab
     if (activeTab === "performance") {
       renderPerformanceChart()
     } else if (activeTab === "allocation") {
       renderAllocationChart()
     }
-  }, [activeTab, theme])
+  }, [activeTab, mounted, currentTheme])
+
+  if (!mounted) {
+    return <div className="h-[600px]" /> // Placeholder to prevent layout shift
+  }
 
   return (
     <section id="approach" className="py-20 bg-background">
@@ -209,68 +205,66 @@ export function DataVisualization() {
           <div className="inline-flex items-center rounded-full border border-muted/30 bg-muted/10 px-3 py-1 text-sm text-muted-foreground mb-4">
             <span className="mr-1">•</span> Our Approach
           </div>
-          <h2 className="heading-lg text-foreground">Data-Driven Methodology</h2>
+          <h2 className="heading-lg text-foreground">Data-Driven Financial Solutions</h2>
           <p className="mt-4 body-lg max-w-3xl mx-auto text-muted-foreground">
-            We leverage sophisticated data analysis and visualization to provide actionable insights
+            We combine advanced data analysis with financial expertise to deliver actionable insights
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-2">
-          <Card className="overflow-hidden border-border bg-card">
+        <div className="grid gap-8 md:grid-cols-2">
+          <Card className="border-border bg-card">
             <CardHeader>
-              <CardTitle className="text-foreground">How We Work</CardTitle>
+              <CardTitle className="text-foreground">Our Process</CardTitle>
               <CardDescription className="text-muted-foreground">
-                Our methodology combines financial expertise with advanced data analytics
+                A systematic approach to solving complex financial challenges
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-muted/10 flex items-center justify-center">
-                    <span className="font-bold text-muted-foreground">1</span>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-foreground">Data Collection</h4>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      We gather comprehensive financial data from multiple sources to ensure a complete picture.
-                    </p>
-                  </div>
+            <CardContent className="space-y-6">
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-muted/10 flex items-center justify-center">
+                  <span className="font-bold text-muted-foreground">1</span>
                 </div>
-
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-muted/10 flex items-center justify-center">
-                    <span className="font-bold text-muted-foreground">2</span>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-foreground">Advanced Analysis</h4>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      Our proprietary algorithms analyze patterns and trends to identify opportunities and risks.
-                    </p>
-                  </div>
+                <div>
+                  <h4 className="font-medium text-foreground">Data Collection & Analysis</h4>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    We gather comprehensive financial data and analyze it using advanced statistical methods.
+                  </p>
                 </div>
+              </div>
 
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-muted/10 flex items-center justify-center">
-                    <span className="font-bold text-muted-foreground">3</span>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-foreground">Strategic Recommendations</h4>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      We develop actionable strategies based on data insights and financial expertise.
-                    </p>
-                  </div>
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-muted/10 flex items-center justify-center">
+                  <span className="font-bold text-muted-foreground">2</span>
                 </div>
+                <div>
+                  <h4 className="font-medium text-foreground">Insight Generation</h4>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Our team identifies key patterns and insights from the analyzed data.
+                  </p>
+                </div>
+              </div>
 
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-muted/10 flex items-center justify-center">
-                    <span className="font-bold text-muted-foreground">4</span>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-foreground">Implementation & Monitoring</h4>
-                    <p className="text-sm text-muted-foreground mt-1">
-                      We help implement strategies and continuously monitor performance with real-time dashboards.
-                    </p>
-                  </div>
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-muted/10 flex items-center justify-center">
+                  <span className="font-bold text-muted-foreground">3</span>
+                </div>
+                <div>
+                  <h4 className="font-medium text-foreground">Strategic Recommendations</h4>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    We develop actionable strategies based on data insights and financial expertise.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-muted/10 flex items-center justify-center">
+                  <span className="font-bold text-muted-foreground">4</span>
+                </div>
+                <div>
+                  <h4 className="font-medium text-foreground">Implementation & Monitoring</h4>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    We help implement strategies and continuously monitor performance with real-time dashboards.
+                  </p>
                 </div>
               </div>
             </CardContent>

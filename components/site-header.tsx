@@ -3,17 +3,23 @@
 import Link from "next/link"
 import Image from "next/image"
 import { ThemeToggle } from "./theme-toggle"
-import { Sun, Moon, Globe } from "lucide-react"
 import { useTheme } from "next-themes"
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 
 export function SiteHeader() {
-  const { theme } = useTheme()
+  const { theme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
   }, [])
+
+  if (!mounted) {
+    return <div className="h-16" /> // Placeholder to prevent layout shift
+  }
+
+  // Use resolvedTheme for more reliable theme detection
+  const currentTheme = resolvedTheme || theme
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background">
@@ -22,7 +28,7 @@ export function SiteHeader() {
           <div className="relative w-[120px]">
             <Link href="/">
               <Image 
-                src={mounted ? (theme === "dark" ? "/images/logo.png" : "/images/logolightmode.png") : "/images/logo.png"}
+                src={currentTheme === "dark" ? "/images/logo.png" : "/images/logolightmode.png"}
                 alt="Gaelica Finance" 
                 width={120}
                 height={40}
@@ -46,12 +52,7 @@ export function SiteHeader() {
           <Link href="#cta" className="text-base font-bold text-foreground hover:text-foreground/80">
             Get Started Today
           </Link>
-          <div className="flex items-center gap-2">
-            <button className="p-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80">
-              <Globe className="h-5 w-5" />
-            </button>
-            <ThemeToggle />
-          </div>
+          <ThemeToggle />
         </nav>
       </div>
     </header>

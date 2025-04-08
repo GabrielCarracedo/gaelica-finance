@@ -1,23 +1,26 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
-import Link from "next/link"
 import { useTheme } from "next-themes"
+import { useEffect, useState } from "react"
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
 
 export function Hero() {
-  const [isLoaded, setIsLoaded] = useState(false)
+  const { theme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
-  const { theme } = useTheme()
 
   useEffect(() => {
     setMounted(true)
-    setIsLoaded(true)
-  }, [theme])
+  }, [])
 
-  if (!mounted) return null
+  if (!mounted) {
+    return <div className="h-[600px]" /> // Placeholder to prevent layout shift
+  }
+
+  // Use resolvedTheme for more reliable theme detection
+  const currentTheme = resolvedTheme || theme
 
   return (
     <section className="relative overflow-hidden py-20 md:py-32 bg-background">
@@ -34,13 +37,13 @@ export function Hero() {
       <div className="container relative">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           {/* Logo on the left, positioned higher */}
-          <div className={`flex justify-center ${isLoaded ? "animate-fade-in" : "opacity-0"}`}>
-            <div className={theme === "light" ? "mt-[0rem]" : "mt-[-3rem]"}>
-              <Image 
-                src={mounted ? (theme === "dark" ? "/images/logo.png" : "/images/logolightmode.png") : "/images/logo.png"}
-                alt="Gaelica Finance" 
-                width={theme === "light" ? 320 : 240}
-                height={theme === "light" ? 107 : 80}
+          <div className="flex justify-center">
+            <div className={currentTheme === "light" ? "mt-[1rem]" : "mt-[-3rem]"}>
+              <Image
+                src={currentTheme === "dark" ? "/images/logo.png" : "/images/logolightmode.png"}
+                alt="Gaelica Finance"
+                width={currentTheme === "dark" ? 240 : 140}
+                height={currentTheme === "dark" ? 80 : 45}
                 className="w-auto h-auto"
                 priority
               />
@@ -48,8 +51,8 @@ export function Hero() {
           </div>
 
           {/* All text content on the right */}
-          <div className={`space-y-6 ${isLoaded ? "animate-fade-in-delay-1" : "opacity-0"}`}>
-            <div className="inline-flex items-center rounded-full border border-muted/30 bg-muted/10 px-3 py-1 text-sm text-muted-foreground">
+          <div className="space-y-6">
+            <div className="inline-flex items-center rounded-full border border-border/30 bg-muted/10 px-3 py-1 text-sm text-muted-foreground">
               <span className="mr-1">•</span> Premium Financial Services
             </div>
 
@@ -63,18 +66,16 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" asChild className="gap-2 bg-[#9b9b9b] hover:bg-[#9b9b9b]/90 text-[#141414]">
-                <Link href="#cta">
-                  Get Started <ArrowRight className="h-4 w-4" />
+              <Button asChild size="lg" className="gap-2 bg-[#9b9b9b] hover:bg-[#9b9b9b]/90 text-background">
+                <Link href="#services">
+                  Explore Our Services
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                asChild
-                className="border-[#737373] hover:bg-[#737373]/10 text-[#c3c3c3]"
-              >
-                <Link href="#services">Learn More</Link>
+              <Button asChild variant="outline" size="lg">
+                <Link href="#approach">
+                  Learn About Our Approach
+                </Link>
               </Button>
             </div>
           </div>
