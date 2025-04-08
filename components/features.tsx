@@ -22,18 +22,18 @@ export function Features() {
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-muted/10 mb-6 group-hover:bg-muted/20 transition-all duration-300">
               <Scale className="h-6 w-6 text-muted-foreground" />
             </div>
-            <h3 className="text-xl font-bold mb-3 text-foreground">Valuation</h3>
-            <p className="text-muted-foreground mb-4">
-              Comprehensive business valuation services using advanced financial models to determine accurate and
-              defensible company valuations.
-            </p>
-            <Link
-              href="/business-valuation"
-              className="text-sm font-medium text-primary hover:text-primary/80 transition-colors flex items-center"
-              scroll={false}
-            >
-              Learn more <ArrowRight className="ml-1 h-3 w-3" />
-            </Link>
+            <div className="flex flex-col items-start gap-4">
+              <h3 className="text-xl font-semibold">Valuation</h3>
+              <p className="text-muted-foreground">
+                Comprehensive business valuation services for mergers, acquisitions, financial reporting, and strategic planning.
+              </p>
+              <Link 
+                href="/business-valuation" 
+                className="text-primary hover:underline"
+              >
+                Learn more
+              </Link>
+            </div>
           </div>
 
           {/* New M&A Box (Second) with Link */}

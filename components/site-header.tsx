@@ -30,7 +30,7 @@ export function SiteHeader() {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-4">
           <div className="relative w-[120px]">
-            <Link href="/">
+            <Link href="/#">
               <Image 
                 src={currentTheme === "dark" ? "/images/logo.png" : "/images/logolightmode.png"}
                 alt="Gaelica Finance" 
@@ -46,16 +46,16 @@ export function SiteHeader() {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
-          <Link href="#services" className="text-base font-bold text-foreground hover:text-foreground/80">
+          <Link href="/#services" className="text-base font-bold text-foreground hover:text-foreground/80">
             Our Services
           </Link>
-          <Link href="#approach" className="text-base font-bold text-foreground hover:text-foreground/80">
+          <Link href="/#approach" className="text-base font-bold text-foreground hover:text-foreground/80">
             Our Approach
           </Link>
-          <Link href="#testimonials" className="text-base font-bold text-foreground hover:text-foreground/80">
+          <Link href="/#client-stories" className="text-base font-bold text-foreground hover:text-foreground/80">
             Client Success Stories
           </Link>
-          <Link href="#cta" className="text-base font-bold text-foreground hover:text-foreground/80">
+          <Link href="/#cta" className="text-base font-bold text-foreground hover:text-foreground/80">
             Get Started Today
           </Link>
           <ThemeToggle />
@@ -74,28 +74,28 @@ export function SiteHeader() {
             <SheetContent side="right" className="w-[300px] sm:w-[400px]">
               <div className="flex flex-col gap-4 py-4">
                 <Link 
-                  href="#services" 
+                  href="/#services" 
                   className="text-base font-bold text-foreground hover:text-foreground/80"
                   onClick={() => setIsOpen(false)}
                 >
                   Our Services
                 </Link>
                 <Link 
-                  href="#approach" 
+                  href="/#approach" 
                   className="text-base font-bold text-foreground hover:text-foreground/80"
                   onClick={() => setIsOpen(false)}
                 >
                   Our Approach
                 </Link>
                 <Link 
-                  href="#testimonials" 
+                  href="/#client-stories" 
                   className="text-base font-bold text-foreground hover:text-foreground/80"
                   onClick={() => setIsOpen(false)}
                 >
                   Client Success Stories
                 </Link>
                 <Link 
-                  href="#cta" 
+                  href="/#cta" 
                   className="text-base font-bold text-foreground hover:text-foreground/80"
                   onClick={() => setIsOpen(false)}
                 >

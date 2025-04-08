@@ -24,6 +24,9 @@ export default function BusinessValuationPage() {
 
   useEffect(() => {
     setMounted(true)
+    
+    // Scroll to top of page when component mounts
+    window.scrollTo(0, 0)
   }, [])
 
   if (!mounted) {
@@ -32,7 +35,7 @@ export default function BusinessValuationPage() {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <main className="flex-1">
+      <main id="business-valuation" className="flex-1">
         {/* Hero Section */}
         <section className="relative py-16 md:py-24 bg-background overflow-hidden">
           <div className="absolute inset-0 bg-grid-white/5 bg-[size:30px_30px]" />
@@ -76,64 +79,112 @@ export default function BusinessValuationPage() {
         {/* Challenges Section */}
         <section className="py-16 bg-card">
           <div className="container">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-foreground mb-4">Your Challenges</h2>
+            <div className="text-center space-y-4 mb-12">
+              <h2 className="text-3xl font-bold text-foreground">Your Challenges</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Common questions our clients face when approaching business valuation
+                As a business owner or manager, you might be facing these key questions:
               </p>
             </div>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
-              <Card className="bg-background border-border">
+              <Card className="bg-background border-border hover:border-primary/50 transition-colors">
                 <CardContent className="p-6">
-                  <p className="text-muted-foreground">What is the real economic value of my company today?</p>
+                  <div className="flex items-start space-x-4">
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary"><circle cx="12" cy="12" r="10"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>
+                    </div>
+                    <p className="text-muted-foreground">What is my business really worth in today's market?</p>
+                  </div>
                 </CardContent>
               </Card>
 
-              <Card className="bg-background border-border">
+              <Card className="bg-background border-border hover:border-primary/50 transition-colors">
                 <CardContent className="p-6">
-                  <p className="text-muted-foreground">
-                    How do I support negotiations with reliable and objective valuation?
-                  </p>
+                  <div className="flex items-start space-x-4">
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                    </div>
+                    <p className="text-muted-foreground">How do I justify my valuation to potential investors or buyers?</p>
+                  </div>
                 </CardContent>
               </Card>
 
-              <Card className="bg-background border-border">
+              <Card className="bg-background border-border hover:border-primary/50 transition-colors">
                 <CardContent className="p-6">
-                  <p className="text-muted-foreground">
-                    Which method is most appropriate for my business model and stage?
-                  </p>
+                  <div className="flex items-start space-x-4">
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>
+                    </div>
+                    <p className="text-muted-foreground">What is the trade-off of this strategic decision in the long-term value of the company?</p>
+                  </div>
                 </CardContent>
               </Card>
 
-              <Card className="bg-background border-border">
+              <Card className="bg-background border-border hover:border-primary/50 transition-colors">
                 <CardContent className="p-6">
-                  <p className="text-muted-foreground">
-                    How do I use valuation to attract investment or prepare for a transaction?
-                  </p>
+                  <div className="flex items-start space-x-4">
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary"><path d="M12 20V10"/><path d="m18 20-6-6-6 6"/></svg>
+                    </div>
+                    <p className="text-muted-foreground">Is this reorganization, partnership or divestment actually creating value — or just shifting it?</p>
+                  </div>
                 </CardContent>
               </Card>
 
-              <Card className="bg-background border-border">
+              <Card className="bg-background border-border hover:border-primary/50 transition-colors">
                 <CardContent className="p-6">
-                  <p className="text-muted-foreground">Can I trust the numbers behind the value someone is proposing?</p>
+                  <div className="flex items-start space-x-4">
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <p className="text-muted-foreground">How do I translate risks, reputation, or potential disruptions into financial terms that boards and investors can understand?</p>
+                  </div>
                 </CardContent>
               </Card>
 
-              <Card className="bg-background border-border">
+              <Card className="bg-background border-border hover:border-primary/50 transition-colors">
                 <CardContent className="p-6">
-                  <p className="text-muted-foreground">
-                    How do externalities — such as regulation, ESG pressure or supply chain shifts — affect the value of my business?
-                  </p>
+                  <div className="flex items-start space-x-4">
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    </div>
+                    <p className="text-muted-foreground">How do I support negotiations with reliable and objective valuation?</p>
+                  </div>
                 </CardContent>
               </Card>
-            </div>
 
-            <div className="mt-12 text-center">
-              <blockquote className="text-xl text-muted-foreground italic max-w-3xl mx-auto">
-                "Valuation is no longer just a financial requirement — it's a strategic lens.<br />
-                And great questions lead to great decisions."
-              </blockquote>
+              <Card className="bg-background border-border hover:border-primary/50 transition-colors">
+                <CardContent className="p-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <p className="text-muted-foreground">How do externalities — such as regulation, ESG pressure or supply chain shifts — affect the value of my business?</p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-background border-border hover:border-primary/50 transition-colors">
+                <CardContent className="p-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.3 7 12 12l8.7-5"/><path d="M12 22V12"/></svg>
+                    </div>
+                    <p className="text-muted-foreground">How do I prepare for a future sale or investment round?</p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-background border-border hover:border-primary/50 transition-colors">
+                <CardContent className="p-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-primary"><path d="M12 20V10"/><path d="m18 20-6-6-6 6"/></svg>
+                    </div>
+                    <p className="text-muted-foreground">How do I balance short-term performance with long-term enterprise value creation?</p>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </section>
@@ -167,6 +218,10 @@ export default function BusinessValuationPage() {
                   <li className="flex items-start">
                     <CheckCircle className="h-6 w-6 text-muted-foreground mr-3 flex-shrink-0 mt-0.5" />
                     <p className="text-muted-foreground">Integration of ESG, tax and governance dimensions in our assessments</p>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="h-6 w-6 text-muted-foreground mr-3 flex-shrink-0 mt-0.5" />
+                    <p className="text-muted-foreground">Use of proprietary AI tools to accelerate, expand and deepen insights</p>
                   </li>
                 </ul>
               </div>
@@ -288,39 +343,39 @@ export default function BusinessValuationPage() {
         </section>
 
         {/* Strategic Purposes Section */}
-        <section className="py-16 bg-background">
+        <section className="py-16">
           <div className="container">
             <h2 className="text-3xl font-bold text-foreground mb-6 text-center">Strategic Purposes + Regulatory References</h2>
-            
-            <div className="max-w-3xl mx-auto text-center mb-12">
-              <blockquote className="text-xl text-muted-foreground italic">
-                "We don't just calculate value — we clarify it, defend it, and turn it into action.<br />
-                Each valuation is crafted with purpose, aligning financial precision with legal, strategic, fiscal, or governance goals — because value only matters when it's connected to the right decision."
-              </blockquote>
-            </div>
-
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+            <blockquote className="text-xl text-muted-foreground italic mb-12 text-center max-w-3xl mx-auto">
+              "Clarify, defend and act on value in relation to financial, legal, strategic, fiscal or governance goals"
+            </blockquote>
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
               <div className="bg-card p-6 rounded-lg border border-border">
                 <h3 className="text-xl font-bold text-foreground mb-4">Transactional Contexts</h3>
                 <ul className="space-y-4">
                   <li className="text-foreground">
                     <span className="text-muted-foreground font-semibold block mb-2">Mergers & Acquisitions</span>
+                    <p className="text-muted-foreground/70 mb-2">→ Valuation to support pricing, negotiation, deal structure and PPA.</p>
                     <ul className="mt-2 space-y-1 pl-4 border-l-2 border-border">
-                      <li className="text-muted-foreground/50">IFRS 3 / CPC 15</li>
-                      <li className="text-muted-foreground/50">CVM 361</li>
+                      <li className="text-muted-foreground/40">• IFRS 3 / CPC 15</li>
+                      <li className="text-muted-foreground/40">• CVM 361</li>
+                      <li className="text-muted-foreground/40">• Law No. 6,404/76 – Articles 227–264</li>
                     </ul>
                   </li>
                   <li className="text-foreground">
                     <span className="text-muted-foreground font-semibold block mb-2">Fundraising & Investor Onboarding</span>
+                    <p className="text-muted-foreground/70 mb-2">→ Establish credible valuation ranges for equity rounds and private placements.</p>
                     <ul className="mt-2 space-y-1 pl-4 border-l-2 border-border">
-                      <li className="text-muted-foreground/50">Corporate Finance & PE/VC best practices</li>
+                      <li className="text-muted-foreground/40">• Corporate Finance best practices and PE/VC due diligence standards</li>
                     </ul>
                   </li>
                   <li className="text-foreground">
                     <span className="text-muted-foreground font-semibold block mb-2">Shareholder Transactions</span>
+                    <p className="text-muted-foreground/70 mb-2">→ Entry/exit of shareholders, buybacks, dispute resolution, or price adjustments.</p>
                     <ul className="mt-2 space-y-1 pl-4 border-l-2 border-border">
-                      <li className="text-muted-foreground/50">Código Civil / CPC</li>
-                      <li className="text-muted-foreground/50">Shareholders' Agreements</li>
+                      <li className="text-muted-foreground/40">• Brazilian Civil Code / Civil Procedure Code</li>
+                      <li className="text-muted-foreground/40">• Shareholders' Agreements</li>
+                      <li className="text-muted-foreground/40">• Law No. 6,404/76 – Articles 118, 45, 105</li>
                     </ul>
                   </li>
                 </ul>
@@ -328,18 +383,29 @@ export default function BusinessValuationPage() {
 
               <div className="bg-card p-6 rounded-lg border border-border">
                 <h3 className="text-xl font-bold text-foreground mb-4">Accounting & Financial Reporting</h3>
+                <p className="text-muted-foreground/70 mb-4">Law No. 6,404/76 – Articles 183–186: Legal framework for accounting valuation of assets and liabilities (fair value, impairment, revaluation)</p>
                 <ul className="space-y-4">
                   <li className="text-foreground">
                     <span className="text-muted-foreground font-semibold block mb-2">Purchase Price Allocation (PPA)</span>
+                    <p className="text-muted-foreground/70 mb-2">→ Allocation of the purchase price among tangible and intangible assets and goodwill.</p>
                     <ul className="mt-2 space-y-1 pl-4 border-l-2 border-border">
-                      <li className="text-muted-foreground/50">IFRS 3 / CPC 15, CPC 01, 04, 27, 46</li>
-                      <li className="text-muted-foreground/50">NBC TA 540, ITG 1000</li>
+                      <li className="text-muted-foreground/40">• IFRS 3 / CPC 15</li>
+                      <li className="text-muted-foreground/40">• CPC 04 – Intangible Assets</li>
+                      <li className="text-muted-foreground/40">• CPC 27 – Property, Plant & Equipment</li>
+                      <li className="text-muted-foreground/40">• CPC 46 – Fair Value</li>
+                      <li className="text-muted-foreground/40">• NBC TA 540 – Accounting Estimates (Audit)</li>
+                      <li className="text-muted-foreground/40">• ITG 1000 – SMEs</li>
                     </ul>
                   </li>
                   <li className="text-foreground">
                     <span className="text-muted-foreground font-semibold block mb-2">Financial Reporting Support</span>
+                    <p className="text-muted-foreground/70 mb-2">→ Valuation for financial disclosures, impairment testing, and regulatory filings.</p>
                     <ul className="mt-2 space-y-1 pl-4 border-l-2 border-border">
-                      <li className="text-muted-foreground/50">CPCs applicable to evaluated asset/liability</li>
+                      <li className="text-muted-foreground/40">• CPC 01 – Impairment</li>
+                      <li className="text-muted-foreground/40">• CPC 23 – Accounting Policies</li>
+                      <li className="text-muted-foreground/40">• CPC 25 – Provisions and Contingent Liabilities</li>
+                      <li className="text-muted-foreground/40">• CPC 32 – Income Taxes</li>
+                      <li className="text-muted-foreground/40">• CPC 46 – Fair Value</li>
                     </ul>
                   </li>
                 </ul>
@@ -349,18 +415,38 @@ export default function BusinessValuationPage() {
                 <h3 className="text-xl font-bold text-foreground mb-4">Tax, Compliance & Legal</h3>
                 <ul className="space-y-4">
                   <li className="text-foreground">
-                    <span className="text-muted-foreground font-semibold block mb-2">Tax Optimization & Reorganization</span>
+                    <span className="text-muted-foreground font-semibold block mb-2">Tax Optimization & Corporate Reorganization</span>
+                    <p className="text-muted-foreground/70 mb-2">→ Valuation for restructuring, mergers, goodwill recognition, and tax compliance.</p>
                     <ul className="mt-2 space-y-1 pl-4 border-l-2 border-border">
-                      <li className="text-muted-foreground/50">Lei nº 12.973/2014, IN RFB 1.700/2017</li>
-                      <li className="text-muted-foreground/50">CPCs: 23, 24, 25, 32</li>
-                      <li className="text-muted-foreground/50">Lei nº 6.404/76</li>
+                      <li className="text-muted-foreground/40">• Law No. 12,973/2014 – Tax amortization of goodwill</li>
+                      <li className="text-muted-foreground/40">• IN RFB 1,700/2017 – Transfer pricing</li>
+                      <li className="text-muted-foreground/40">• CPCs 23, 24, 25, 32</li>
+                      <li className="text-muted-foreground/40">• Law No. 6,404/76 – Articles 226 and 264</li>
                     </ul>
                   </li>
                   <li className="text-foreground">
                     <span className="text-muted-foreground font-semibold block mb-2">Legal & Dispute Resolution</span>
+                    <p className="text-muted-foreground/70 mb-2">→ Expert valuation for litigation, arbitration, or administrative proceedings.</p>
                     <ul className="mt-2 space-y-1 pl-4 border-l-2 border-border">
-                      <li className="text-muted-foreground/50">CPC – Art. 464 to 480</li>
-                      <li className="text-muted-foreground/50">Arbitration chambers (CAM-CCBC, etc.)</li>
+                      <li className="text-muted-foreground/40">• Brazilian Civil Procedure Code – Articles 464 to 480</li>
+                      <li className="text-muted-foreground/40">• Arbitration Chambers (e.g. CAM-CCBC, CIESP/FIESP)</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="bg-card p-6 rounded-lg border border-border">
+                <h3 className="text-xl font-bold text-foreground mb-4">Capital Markets & Governance</h3>
+                <ul className="space-y-4">
+                  <li className="text-foreground">
+                    <span className="text-muted-foreground font-semibold block mb-2">Capital Market Events & Minority Protection</span>
+                    <p className="text-muted-foreground/70 mb-2">→ Fairness opinions, public offerings, shareholder resolutions, and buyouts.</p>
+                    <ul className="mt-2 space-y-1 pl-4 border-l-2 border-border">
+                      <li className="text-muted-foreground/40">• CVM 361 – Tender offers (OPA)</li>
+                      <li className="text-muted-foreground/40">• CVM 480 – Public company registration</li>
+                      <li className="text-muted-foreground/40">• CVM 481 – Shareholders' meetings and voting procedures</li>
+                      <li className="text-muted-foreground/40">• CVM 565 – Related-party transactions</li>
+                      <li className="text-muted-foreground/40">• Law No. 6,404/76 – Articles 4, 20, 137, 256, 264</li>
                     </ul>
                   </li>
                 </ul>
@@ -371,17 +457,20 @@ export default function BusinessValuationPage() {
                 <ul className="space-y-4">
                   <li className="text-foreground">
                     <span className="text-muted-foreground font-semibold block mb-2">ESG-Linked Valuation</span>
+                    <p className="text-muted-foreground/70 mb-2">→ Modeling of ESG impacts on risk, cash flow, and value drivers.</p>
                     <ul className="mt-2 space-y-1 pl-4 border-l-2 border-border">
-                      <li className="text-muted-foreground/50">IFRS S2, CVM 193/2023</li>
-                      <li className="text-muted-foreground/50">CPC 25, 32, 46</li>
-                      <li className="text-muted-foreground/50">CMN 4.943/2021</li>
+                      <li className="text-muted-foreground/40">• IFRS S2 – Climate-related Disclosures</li>
+                      <li className="text-muted-foreground/40">• CVM Resolution 193/2023 – ISSB adoption from 2026</li>
+                      <li className="text-muted-foreground/40">• CPC 25, 32, 46</li>
+                      <li className="text-muted-foreground/40">• CMN 4,943/2021 – ESG risk in the financial system</li>
                     </ul>
                   </li>
                   <li className="text-foreground">
                     <span className="text-muted-foreground font-semibold block mb-2">Integrated Reporting Support</span>
+                    <p className="text-muted-foreground/70 mb-2">→ Valuation as a core input in Integrated Reporting frameworks.</p>
                     <ul className="mt-2 space-y-1 pl-4 border-l-2 border-border">
-                      <li className="text-muted-foreground/50">CVM 14/2020</li>
-                      <li className="text-muted-foreground/50">&lt;IR&gt; Framework – IIRC/ISSB</li>
+                      <li className="text-muted-foreground/40">• CVM Resolution 14/2020 – Recommendation for &lt;IR&gt; use</li>
+                      <li className="text-muted-foreground/40">• &lt;IR&gt; Framework – IIRC / ISSB</li>
                     </ul>
                   </li>
                 </ul>
