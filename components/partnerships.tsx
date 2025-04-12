@@ -31,42 +31,42 @@ export function Partnerships() {
           {/* Partner cards */}
           {[
             {
-              imageSrc: "/images/partners/james.png",
+              imageSrc: "/images/Partners/James.png",
               name: "James Spalding",
               title: "AI Technologist | Partner at Delphion",
               description: "Technology leader with deep expertise in applied AI and product development. Partners with Gaelica on financial automation and generative AI solutions.",
               paddingTop: "pt-12"
             },
             {
-              imageSrc: "/images/partners/luciana.png",
+              imageSrc: "/images/Partners/Luciana.png",
               name: "Luciana Medeiros",
               title: "ESG & Impact Evaluation",
               description: "Expert in sustainability strategy with 20+ years of experience. Partners with Gaelica on ESG impact assessment and stakeholder engagement frameworks.",
               paddingTop: "pt-12"
             },
             {
-              imageSrc: "/images/partners/Estevão.png",
+              imageSrc: "/images/Partners/Estevão.png",
               name: "Estevão Seccatto",
               title: "Turnaround Expert | Strategic Restructuring",
               description: "Advisor with 20+ years in complex corporate restructurings and R$20B+ in transactions. Partners with Gaelica on business model transformation and high-speed execution.",
               paddingTop: "pt-8"
             },
             {
-              imageSrc: "/images/partners/thammy.png",
+              imageSrc: "/images/Partners/Thammy.png",
               name: "Thammy I. Marcato",
               title: "Innovation Advisor | Ecosystem Builder",
               description: "Global startup mentor and innovation leader in strategic planning and digital transformation. Partners with Gaelica on high-growth strategy and innovation architecture.",
               paddingTop: "pt-8"
             },
             {
-              imageSrc: "/images/partners/oliver.png",
+              imageSrc: "/images/Partners/Oliver.png",
               name: "Oliver Ruprecht Scaravaglioni",
               title: "Business Development | Strategic Connector",
               description: "Brings strong commercial intelligence across sports, entertainment, and biotech sectors. Partners with Gaelica on business origination and market access.",
               paddingTop: "pt-4"
             },
             {
-              imageSrc: "/images/partners/Ana Paula.png",
+              imageSrc: "/images/Partners/Ana Paula.png",
               name: "Ana Paula Carracedo",
               title: "Governance & Compliance Leader | Board Advisor",
               description: "Executive with over a decade leading GRC at top corporations. Former President of the Compliance & Risk Committee at Amcham-Brasil. Partners with Gaelica on governance and risk strategies.",
