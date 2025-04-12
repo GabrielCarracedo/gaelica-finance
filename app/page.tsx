@@ -5,6 +5,7 @@ import { Testimonials } from "@/components/testimonials"
 import { CallToAction } from "@/components/call-to-action"
 import { SiteFooter } from "@/components/site-footer"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { Partnerships } from "@/components/partnerships"
 import Link from "next/link"
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
         <Hero />
         <Features />
         <DataVisualization />
+        <Partnerships />
         <Testimonials />
         <CallToAction />
       </main>

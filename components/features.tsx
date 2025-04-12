@@ -1,4 +1,4 @@
-import { BarChart3, PieChart, TrendingUp, LineChart, Layers, Shield, Scale, Briefcase, ArrowRight } from "lucide-react"
+import { BarChart3, PieChart, TrendingUp, LineChart, Layers, Shield, Scale, Briefcase, ArrowRight, Leaf, Calculator } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
@@ -17,7 +17,7 @@ export function Features() {
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {/* New Valuation Box (First) */}
+          {/* Valuation Box */}
           <div className="bg-card p-8 rounded-lg border border-border group hover:border-muted/50 transition-all duration-300">
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-muted/10 mb-6 group-hover:bg-muted/20 transition-all duration-300">
               <Scale className="h-6 w-6 text-muted-foreground" />
@@ -36,7 +36,7 @@ export function Features() {
             </div>
           </div>
 
-          {/* New M&A Box (Second) with Link */}
+          {/* M&A Box */}
           <div className="bg-card p-8 rounded-lg border border-border group hover:border-muted/50 transition-all duration-300">
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-muted/10 mb-6 group-hover:bg-muted/20 transition-all duration-300">
               <Briefcase className="h-6 w-6 text-muted-foreground" />
@@ -55,16 +55,25 @@ export function Features() {
             </Link>
           </div>
 
+          {/* Financial Planning & Analysis Box */}
           <div className="bg-card p-8 rounded-lg border border-border group hover:border-muted/50 transition-all duration-300">
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-muted/10 mb-6 group-hover:bg-muted/20 transition-all duration-300">
               <BarChart3 className="h-6 w-6 text-muted-foreground" />
             </div>
-            <h3 className="text-xl font-bold mb-3 text-foreground">Financial Analysis</h3>
-            <p className="text-muted-foreground">
-              In-depth analysis of financial data to identify trends, opportunities, and risks for your business.
+            <h3 className="text-xl font-bold mb-3 text-foreground">Financial Planning & Analysis</h3>
+            <p className="text-muted-foreground mb-4">
+              Dynamic financial planning and performance insights to support strategic decisions and drive business execution.
             </p>
+            <Link
+              href="/financial-planning-analysis"
+              className="text-sm font-medium text-primary hover:text-primary/80 transition-colors flex items-center"
+              scroll={false}
+            >
+              Learn more <ArrowRight className="ml-1 h-3 w-3" />
+            </Link>
           </div>
 
+          {/* Investment Strategy Box */}
           <div className="bg-card p-8 rounded-lg border border-border group hover:border-muted/50 transition-all duration-300">
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-muted/10 mb-6 group-hover:bg-muted/20 transition-all duration-300">
               <TrendingUp className="h-6 w-6 text-muted-foreground" />
@@ -73,8 +82,16 @@ export function Features() {
             <p className="text-muted-foreground">
               Data-backed investment strategies tailored to your business goals and risk tolerance.
             </p>
+            <Link
+              href="/investment-strategy"
+              className="text-sm font-medium text-primary hover:text-primary/80 transition-colors flex items-center"
+              scroll={false}
+            >
+              Learn more <ArrowRight className="ml-1 h-3 w-3" />
+            </Link>
           </div>
 
+          {/* Portfolio Optimization Box */}
           <div className="bg-card p-8 rounded-lg border border-border group hover:border-muted/50 transition-all duration-300">
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-muted/10 mb-6 group-hover:bg-muted/20 transition-all duration-300">
               <PieChart className="h-6 w-6 text-muted-foreground" />
@@ -83,8 +100,16 @@ export function Features() {
             <p className="text-muted-foreground">
               Optimize your investment portfolio using advanced statistical models and market analysis.
             </p>
+            <Link
+              href="/portfolio-optimization"
+              className="text-sm font-medium text-primary hover:text-primary/80 transition-colors flex items-center"
+              scroll={false}
+            >
+              Learn more <ArrowRight className="ml-1 h-3 w-3" />
+            </Link>
           </div>
 
+          {/* Risk Assessment Box */}
           <div className="bg-card p-8 rounded-lg border border-border group hover:border-muted/50 transition-all duration-300">
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-muted/10 mb-6 group-hover:bg-muted/20 transition-all duration-300">
               <LineChart className="h-6 w-6 text-muted-foreground" />
@@ -93,19 +118,52 @@ export function Features() {
             <p className="text-muted-foreground">
               Comprehensive risk analysis and mitigation strategies to protect your financial assets.
             </p>
+            <Link
+              href="/risk-assessment"
+              className="text-sm font-medium text-primary hover:text-primary/80 transition-colors flex items-center"
+              scroll={false}
+            >
+              Learn more <ArrowRight className="ml-1 h-3 w-3" />
+            </Link>
           </div>
 
+          {/* ESG Strategic Investment Box */}
           <div className="bg-card p-8 rounded-lg border border-border group hover:border-muted/50 transition-all duration-300">
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-muted/10 mb-6 group-hover:bg-muted/20 transition-all duration-300">
-              <Layers className="h-6 w-6 text-muted-foreground" />
+              <Leaf className="h-6 w-6 text-muted-foreground" />
             </div>
-            <h3 className="text-xl font-bold mb-3 text-foreground">Financial Planning</h3>
+            <h3 className="text-xl font-bold mb-3 text-foreground">ESG Strategic Investment</h3>
             <p className="text-muted-foreground">
-              Strategic financial planning with clear roadmaps and actionable recommendations.
+              Sustainable investment strategies that integrate environmental, social, and governance factors to drive long-term value creation.
             </p>
+            <Link
+              href="/esg-investment-strategy"
+              className="text-sm font-medium text-primary hover:text-primary/80 transition-colors flex items-center"
+              scroll={false}
+            >
+              Learn more <ArrowRight className="ml-1 h-3 w-3" />
+            </Link>
           </div>
 
-          {/* Updated from Compliance Advisory to Corporate Governance Advisory */}
+          {/* Financial & Complex Instruments Box */}
+          <div className="bg-card p-8 rounded-lg border border-border group hover:border-muted/50 transition-all duration-300">
+            <div className="w-12 h-12 flex items-center justify-center rounded-full bg-muted/10 mb-6 group-hover:bg-muted/20 transition-all duration-300">
+              <Calculator className="h-6 w-6 text-muted-foreground" />
+            </div>
+            <h3 className="text-xl font-bold mb-3 text-foreground">Financial & Complex Instruments</h3>
+            <p className="text-muted-foreground">
+              Expert analysis and valuation of sophisticated financial instruments, derivatives, and structured products.
+            </p>
+            <Link
+              href="/financial-complex-instruments"
+              className="text-sm font-medium text-primary hover:text-primary/80 transition-colors flex items-center"
+              scroll={false}
+            >
+              Learn more <ArrowRight className="ml-1 h-3 w-3" />
+            </Link>
+          </div>
+
+          {/* Corporate Governance Advisory Box */}
           <div className="bg-card p-8 rounded-lg border border-border group hover:border-muted/50 transition-all duration-300">
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-muted/10 mb-6 group-hover:bg-muted/20 transition-all duration-300">
               <Shield className="h-6 w-6 text-muted-foreground" />
@@ -115,6 +173,13 @@ export function Features() {
               Enhance your organization's leadership structure, board effectiveness, and strategic decision-making
               processes with our expert governance guidance.
             </p>
+            <Link
+              href="/corporate-governance-advisory"
+              className="text-sm font-medium text-primary hover:text-primary/80 transition-colors flex items-center"
+              scroll={false}
+            >
+              Learn more <ArrowRight className="ml-1 h-3 w-3" />
+            </Link>
           </div>
         </div>
       </div>
