@@ -1,5 +1,8 @@
 import { NextResponse } from 'next/server';
 
+// Add this line to configure static export
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
