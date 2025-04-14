@@ -55,6 +55,9 @@ export function SiteHeader() {
           <Link href="/#client-stories" className="text-base font-bold text-foreground hover:text-foreground/80">
             Client Success Stories
           </Link>
+          <Link href="/blog" className="text-base font-bold text-foreground hover:text-foreground/80">
+            Blog
+          </Link>
           <Link href="/#cta" className="text-base font-bold text-foreground hover:text-foreground/80">
             Get Started Today
           </Link>
@@ -93,6 +96,13 @@ export function SiteHeader() {
                   onClick={() => setIsOpen(false)}
                 >
                   Client Success Stories
+                </Link>
+                <Link 
+                  href="/blog" 
+                  className="text-base font-bold text-foreground hover:text-foreground/80"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Blog
                 </Link>
                 <Link 
                   href="/#cta" 

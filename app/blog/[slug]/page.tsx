@@ -14,7 +14,6 @@ type Props = {
   params: { slug: string }
 }
 
-// Função para gerar os metadados dinamicamente
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPostBySlug(params.slug)
   
@@ -117,4 +116,4 @@ export default function BlogPost({
       </article>
     </main>
   )
-} 
+}
