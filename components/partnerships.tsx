@@ -27,7 +27,7 @@ export function Partnerships() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 max-w-[1400px] mx-auto">
           {/* Partner cards */}
           {[
             {
@@ -49,21 +49,24 @@ export function Partnerships() {
               name: "Estevão Seccatto",
               title: "Turnaround Expert | Strategic Restructuring",
               description: "Advisor with 20+ years in complex corporate restructurings and R$20B+ in transactions. Partners with Gaelica on business model transformation and high-speed execution.",
-              paddingTop: "pt-8"
+              paddingTop: "pt-8",
+              descriptionPaddingTop: "pt-4"
             },
             {
               imageSrc: "/images/Partners/Thammy.png",
               name: "Thammy I. Marcato",
               title: "Innovation Advisor | Ecosystem Builder",
               description: "Global startup mentor and innovation leader in strategic planning and digital transformation. Partners with Gaelica on high-growth strategy and innovation architecture.",
-              paddingTop: "pt-8"
+              paddingTop: "pt-8",
+              descriptionPaddingTop: "pt-4"
             },
             {
               imageSrc: "/images/Partners/Oliver.png",
               name: "Oliver Ruprecht Scaravaglioni",
               title: "Business Development | Strategic Connector",
               description: "Brings strong commercial intelligence across sports, entertainment, and biotech sectors. Partners with Gaelica on business origination and market access.",
-              paddingTop: "pt-4"
+              paddingTop: "pt-4",
+              descriptionPaddingTop: "pt-4"
             },
             {
               imageSrc: "/images/Partners/Ana Paula.png",
@@ -71,31 +74,19 @@ export function Partnerships() {
               title: "Governance & Compliance Leader | Board Advisor",
               description: "Executive with over a decade leading GRC at top corporations. Former President of the Compliance & Risk Committee at Amcham-Brasil. Partners with Gaelica on governance and risk strategies.",
               paddingTop: "pt-4"
-            },
-            {
-              imageSrc: "",
-              name: "Partner 7",
-              title: "Coming Soon",
-              description: "Additional strategic partner information will be available soon.",
-              paddingTop: "pt-4",
-              isPlaceholder: true
             }
           ].map((partner, index) => (
             <Card key={index} className="bg-card border-border hover:border-muted/50 transition-all duration-300">
               <CardContent className="p-5 flex flex-col items-center h-full">
                 <div className="w-14 h-14 rounded-full bg-muted/10 mb-3 overflow-hidden relative flex items-center justify-center">
-                  {partner.isPlaceholder ? (
-                    <Handshake className="h-7 w-7 text-muted-foreground" />
-                  ) : (
-                    <Image 
-                      src={partner.imageSrc} 
-                      alt={partner.name} 
-                      fill
-                      sizes="56px"
-                      style={{ objectFit: "cover" }}
-                      priority
-                    />
-                  )}
+                  <Image 
+                    src={partner.imageSrc} 
+                    alt={partner.name} 
+                    fill
+                    sizes="56px"
+                    style={{ objectFit: "cover" }}
+                    priority
+                  />
                 </div>
                 <div className="flex-1 flex flex-col items-center">
                   <h3 className="text-base font-semibold text-center text-foreground">{partner.name}</h3>
@@ -103,7 +94,7 @@ export function Partnerships() {
                     {partner.title}
                   </p>
                   <div className={partner.paddingTop}></div>
-                  <p className="text-xs text-center text-muted-foreground/70 leading-relaxed">
+                  <p className={`text-xs text-center text-muted-foreground/70 leading-relaxed ${partner.descriptionPaddingTop || ''}`}>
                     {partner.description}
                   </p>
                 </div>

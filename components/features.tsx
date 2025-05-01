@@ -24,7 +24,7 @@ export function Features() {
             </div>
             <div className="flex flex-col items-start gap-4">
               <h3 className="text-xl font-semibold">Valuation</h3>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground mb-4">
                 Comprehensive business valuation services for mergers, acquisitions, financial reporting, and strategic planning.
               </p>
               <Link 
@@ -79,7 +79,7 @@ export function Features() {
               <TrendingUp className="h-6 w-6 text-muted-foreground" />
             </div>
             <h3 className="text-xl font-bold mb-3 text-foreground">Investment Strategy</h3>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground mb-4">
               Data-backed investment strategies tailored to your business goals and risk tolerance.
             </p>
             <Link
@@ -97,7 +97,7 @@ export function Features() {
               <PieChart className="h-6 w-6 text-muted-foreground" />
             </div>
             <h3 className="text-xl font-bold mb-3 text-foreground">Portfolio Optimization</h3>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground mb-4">
               Optimize your investment portfolio using advanced statistical models and market analysis.
             </p>
             <Link
@@ -115,7 +115,7 @@ export function Features() {
               <LineChart className="h-6 w-6 text-muted-foreground" />
             </div>
             <h3 className="text-xl font-bold mb-3 text-foreground">Risk Assessment</h3>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground mb-4">
               Comprehensive risk analysis and mitigation strategies to protect your financial assets.
             </p>
             <Link
@@ -133,7 +133,7 @@ export function Features() {
               <Leaf className="h-6 w-6 text-muted-foreground" />
             </div>
             <h3 className="text-xl font-bold mb-3 text-foreground">ESG Strategic Investment</h3>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground mb-4">
               Sustainable investment strategies that integrate environmental, social, and governance factors to drive long-term value creation.
             </p>
             <Link
@@ -151,7 +151,7 @@ export function Features() {
               <Calculator className="h-6 w-6 text-muted-foreground" />
             </div>
             <h3 className="text-xl font-bold mb-3 text-foreground">Financial & Complex Instruments</h3>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground mb-4">
               Expert analysis and valuation of sophisticated financial instruments, derivatives, and structured products.
             </p>
             <Link
@@ -169,12 +169,31 @@ export function Features() {
               <Shield className="h-6 w-6 text-muted-foreground" />
             </div>
             <h3 className="text-xl font-bold mb-3 text-foreground">Corporate Governance Advisory</h3>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground mb-4">
               Enhance your organization's leadership structure, board effectiveness, and strategic decision-making
               processes with our expert governance guidance.
             </p>
             <Link
               href="/corporate-governance-advisory"
+              className="text-sm font-medium text-primary hover:text-primary/80 transition-colors flex items-center"
+              scroll={false}
+            >
+              Learn more <ArrowRight className="ml-1 h-3 w-3" />
+            </Link>
+          </div>
+
+          {/* AI Strategy & Business Transformation Box */}
+          <div className="bg-card p-8 rounded-lg border border-border group hover:border-muted/50 transition-all duration-300">
+            <div className="w-12 h-12 flex items-center justify-center rounded-full bg-muted/10 mb-6 group-hover:bg-muted/20 transition-all duration-300">
+              <Layers className="h-6 w-6 text-muted-foreground" />
+            </div>
+            <h3 className="text-xl font-bold mb-3 text-foreground">AI Strategy & Business Transformation</h3>
+            <p className="text-muted-foreground mb-4">
+              Strategic diagnosis to identify opportunities for AI-driven efficiency, growth, and innovation.<br />
+              Tailored insights to elevate your competitive edge through intelligent automation and advanced analytics.
+            </p>
+            <Link
+              href="/ai-strategy"
               className="text-sm font-medium text-primary hover:text-primary/80 transition-colors flex items-center"
               scroll={false}
             >

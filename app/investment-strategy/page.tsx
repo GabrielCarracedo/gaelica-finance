@@ -67,6 +67,8 @@ export default function InvestmentStrategyPage() {
 
   useEffect(() => {
     setMounted(true)
+    // Adicionar scroll para o topo quando a página carregar
+    window.scrollTo(0, 0)
   }, [])
 
   if (!mounted) {
