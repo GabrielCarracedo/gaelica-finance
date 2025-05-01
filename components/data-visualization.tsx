@@ -1,20 +1,16 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useEffect } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useTheme } from "next-themes"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import { ComingSoonOverlay } from "@/components/ui/coming-soon-overlay"
+import { DelphionChart } from "../components/ui/DelphionChart"
 
 export function DataVisualization() {
   const [activeTab, setActiveTab] = useState("performance")
   const [mounted, setMounted] = useState(false)
-
-  const chartRef = useRef<HTMLCanvasElement>(null)
-  const pieChartRef = useRef<HTMLCanvasElement>(null)
-
   const { theme, resolvedTheme } = useTheme()
   
   // Use resolvedTheme for more reliable theme detection
@@ -23,179 +19,6 @@ export function DataVisualization() {
   useEffect(() => {
     setMounted(true)
   }, [])
-
-  useEffect(() => {
-    if (!mounted) return
-    
-    // Mock data for charts
-    const renderPerformanceChart = () => {
-      if (!chartRef.current) return
-
-      const ctx = chartRef.current.getContext("2d")
-      if (!ctx) return
-
-      // Clear previous chart
-      ctx.clearRect(0, 0, chartRef.current.width, chartRef.current.height)
-
-      const textColor = currentTheme === "light" ? "#141414" : "#ffffff"
-      const gridColor = currentTheme === "light" ? "rgba(0, 0, 0, 0.1)" : "rgba(255, 255, 255, 0.1)"
-
-      // Chart dimensions
-      const width = chartRef.current.width
-      const height = chartRef.current.height
-      const padding = 40
-
-      // Draw axes
-      ctx.beginPath()
-      ctx.strokeStyle = gridColor
-      ctx.moveTo(padding, padding)
-      ctx.lineTo(padding, height - padding)
-      ctx.lineTo(width - padding, height - padding)
-      ctx.stroke()
-
-      // Draw grid lines
-      for (let i = 1; i < 5; i++) {
-        const y = padding + (height - 2 * padding) * (1 - i / 5)
-        ctx.beginPath()
-        ctx.strokeStyle = gridColor
-        ctx.moveTo(padding, y)
-        ctx.lineTo(width - padding, y)
-        ctx.stroke()
-
-        // Y-axis labels
-        ctx.fillStyle = textColor
-        ctx.font = "12px Inter, sans-serif"
-        ctx.textAlign = "right"
-        ctx.fillText(`${i * 20}%`, padding - 10, y + 5)
-      }
-
-      // X-axis labels
-      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
-      const xStep = (width - 2 * padding) / (months.length - 1)
-
-      months.forEach((month, i) => {
-        const x = padding + i * xStep
-        ctx.fillStyle = textColor
-        ctx.font = "12px Inter, sans-serif"
-        ctx.textAlign = "center"
-        ctx.fillText(month, x, height - padding + 20)
-      })
-
-      // Draw data line
-      const data = [15, 30, 25, 60, 42, 80]
-      ctx.beginPath()
-      ctx.strokeStyle = "#9b9b9b"
-      ctx.lineWidth = 3
-
-      data.forEach((value, i) => {
-        const x = padding + i * xStep
-        const y = height - padding - (value / 100) * (height - 2 * padding)
-
-        if (i === 0) {
-          ctx.moveTo(x, y)
-        } else {
-          ctx.lineTo(x, y)
-        }
-      })
-
-      ctx.stroke()
-
-      // Add gradient fill
-      const gradient = ctx.createLinearGradient(0, padding, 0, height - padding)
-      gradient.addColorStop(0, "rgba(155, 155, 155, 0.3)")
-      gradient.addColorStop(1, "rgba(155, 155, 155, 0)")
-
-      ctx.fillStyle = gradient
-      ctx.beginPath()
-      ctx.moveTo(padding, height - padding)
-
-      data.forEach((value, i) => {
-        const x = padding + i * xStep
-        const y = height - padding - (value / 100) * (height - 2 * padding)
-
-        if (i === 0) {
-          ctx.lineTo(x, y)
-        } else {
-          ctx.lineTo(x, y)
-        }
-      })
-
-      ctx.lineTo(width - padding, height - padding)
-      ctx.closePath()
-      ctx.fill()
-    }
-
-    const renderAllocationChart = () => {
-      if (!pieChartRef.current) return
-
-      const ctx = pieChartRef.current.getContext("2d")
-      if (!ctx) return
-
-      // Clear previous chart
-      ctx.clearRect(0, 0, pieChartRef.current.width, pieChartRef.current.height)
-
-      const textColor = currentTheme === "light" ? "#141414" : "#ffffff"
-
-      // Chart dimensions
-      const width = pieChartRef.current.width
-      const height = pieChartRef.current.height
-      const centerX = width / 2
-      const centerY = height / 2
-      const radius = Math.min(width, height) / 2 - 40
-
-      // Data
-      const data = [
-        { value: 40, color: "#9b9b9b", label: "Equities" },
-        { value: 30, color: "#7a7a7a", label: "Fixed Income" },
-        { value: 20, color: "#5a5a5a", label: "Real Estate" },
-        { value: 10, color: "#3a3a3a", label: "Commodities" },
-      ]
-
-      // Draw pie chart
-      let startAngle = 0
-      data.forEach((item) => {
-        const sliceAngle = (2 * Math.PI * item.value) / 100
-
-        ctx.beginPath()
-        ctx.moveTo(centerX, centerY)
-        ctx.arc(centerX, centerY, radius, startAngle, startAngle + sliceAngle)
-        ctx.closePath()
-
-        ctx.fillStyle = item.color
-        ctx.fill()
-
-        startAngle += sliceAngle
-      })
-
-      // Draw legend
-      const legendX = width - 150
-      const legendY = 50
-      const legendItemHeight = 25
-
-      data.forEach((item, i) => {
-        // Color box
-        ctx.fillStyle = item.color
-        ctx.fillRect(legendX, legendY + i * legendItemHeight, 15, 15)
-
-        // Label
-        ctx.fillStyle = textColor
-        ctx.font = "12px Inter, sans-serif"
-        ctx.textAlign = "left"
-        ctx.fillText(
-          `${item.label} (${item.value}%)`,
-          legendX + 25,
-          legendY + i * legendItemHeight + 12
-        )
-      })
-    }
-
-    // Render charts based on active tab
-    if (activeTab === "performance") {
-      renderPerformanceChart()
-    } else if (activeTab === "allocation") {
-      renderAllocationChart()
-    }
-  }, [activeTab, mounted, currentTheme])
 
   if (!mounted) {
     return <div className="h-[600px]" /> // Placeholder to prevent layout shift
@@ -305,7 +128,6 @@ export function DataVisualization() {
             </CardHeader>
             <CardContent>
               <div className="relative">
-                <ComingSoonOverlay message="Chart Updates Coming Soon" />
                 <Tabs defaultValue="performance" value={activeTab} onValueChange={setActiveTab} className="w-full">
                   <TabsList className="mb-6 bg-muted w-full justify-start">
                     <TabsTrigger
@@ -322,10 +144,10 @@ export function DataVisualization() {
                     </TabsTrigger>
                   </TabsList>
                   <TabsContent value="performance" className="h-[300px]">
-                    <canvas ref={chartRef} width={600} height={300} className="w-full h-full" />
+                    <DelphionChart />
                   </TabsContent>
                   <TabsContent value="allocation" className="h-[300px]">
-                    <canvas ref={pieChartRef} width={600} height={300} className="w-full h-full" />
+                    <DelphionChart showROI={false} />
                   </TabsContent>
                 </Tabs>
               </div>
