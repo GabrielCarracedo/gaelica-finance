@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { SiteFooter } from "@/components/site-footer"
@@ -17,11 +17,24 @@ import {
   Lock
 } from "lucide-react"
 import Image from "next/image"
+import { useTheme } from "next-themes"
+import { DelphionLogo } from "@/components/delphion-logo"
 
 export default function DelphionPage() {
+  const { theme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+  
   useEffect(() => {
+    setMounted(true)
     window.scrollTo(0, 0)
   }, [])
+
+  if (!mounted) {
+    return <div className="min-h-screen bg-background" />
+  }
+
+  // Use resolvedTheme para detecção mais confiável do tema
+  const currentTheme = resolvedTheme || theme
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -41,22 +54,30 @@ export default function DelphionPage() {
                 Back to Our Approach
               </Link>
 
-              <div className="inline-flex items-center rounded-full border border-border/30 bg-muted/10 px-3 py-1 text-sm text-muted-foreground mb-0">
+              <div className="inline-flex items-center rounded-full border border-border/30 bg-muted/10 px-3 py-1 text-sm text-muted-foreground mb-4">
                 <span className="mr-1">•</span> Delphion
               </div>
 
-              <div className="-mt-8 -mb-12">
+              <div className="mt-4 mb-8 relative">
                 <Image
                   src="/images/delphion-logo.png"
-                  alt="Delphion Logo"
+                  alt="Delphion Logo Dark"
                   width={600}
                   height={180}
                   priority
-                  className="transform -ml-8"
+                  className="transform -ml-8 dark:block hidden"
+                />
+                <Image
+                  src="/images/delphion-logo-fundo-branco.png"
+                  alt="Delphion Logo Light"
+                  width={600}
+                  height={180}
+                  priority
+                  className="transform -ml-8 dark:hidden block"
                 />
               </div>
 
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-6">
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-8">
                 AI-Powered Financial & Strategic Intelligence
               </h1>
 

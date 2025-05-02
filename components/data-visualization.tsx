@@ -6,10 +6,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useTheme } from "next-themes"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import { DelphionChart } from "../components/ui/DelphionChart"
+import { AIEnhancedPerformanceChart } from "@/components/ui/AIEnhancedPerformanceChart"
+import { TimeToInsightChart } from "@/components/ui/TimeToInsightChart"
+import { defaultData } from "@/components/ui/AIEnhancedPerformanceChart"
 
 export function DataVisualization() {
-  const [activeTab, setActiveTab] = useState("performance")
   const [mounted, setMounted] = useState(false)
   const { theme, resolvedTheme } = useTheme()
   
@@ -120,39 +121,43 @@ export function DataVisualization() {
           </Card>
 
           <Card className="border-border bg-card">
-            <CardHeader>
+            <CardHeader className="pb-2">
               <CardTitle className="text-foreground">Data Visualization</CardTitle>
               <CardDescription className="text-muted-foreground">
                 Interactive charts that help you understand complex financial data
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <div className="relative">
-                <Tabs defaultValue="performance" value={activeTab} onValueChange={setActiveTab} className="w-full">
-                  <TabsList className="mb-6 bg-muted w-full justify-start">
-                    <TabsTrigger
-                      value="performance"
-                      className="data-[state=active]:bg-muted/20 data-[state=active]:text-foreground"
-                    >
-                      Performance
-                    </TabsTrigger>
-                    <TabsTrigger
-                      value="allocation"
-                      className="data-[state=active]:bg-muted/20 data-[state=active]:text-foreground"
-                    >
-                      Asset Allocation
-                    </TabsTrigger>
-                  </TabsList>
-                  <TabsContent value="performance" className="h-[300px]">
-                    <DelphionChart />
-                  </TabsContent>
-                  <TabsContent value="allocation" className="h-[300px]">
-                    <DelphionChart showROI={false} />
-                  </TabsContent>
-                </Tabs>
+            <CardContent className="pb-2">
+              <div className="mb-2 text-sm text-muted-foreground">
+                <p className="leading-relaxed">
+                  This line chart tracks per-project performance of AI-driven strategic initiatives from 2020 through 2027, 
+                  showing an initial pilot-year spike, a subsequent expectation adjustment, and then compound maturity growth. 
+                  It visualizes key metrics—ROI, success rate, failure rate, forecast accuracy, and time-to-insight—at the 
+                  project level, based on historical case studies and projected learning-curve effects.
+                </p>
               </div>
+
+              <Tabs defaultValue="percent" className="w-full">
+                <TabsList className="mb-1 bg-muted w-full justify-start">
+                  <TabsTrigger value="percent">Percentuais</TabsTrigger>
+                  <TabsTrigger value="timetoinsight">Time to Insight (dias)</TabsTrigger>
+                </TabsList>
+                <TabsContent value="percent" className="h-[300px]">
+                  <AIEnhancedPerformanceChart height={300} />
+                </TabsContent>
+                <TabsContent value="timetoinsight" className="h-[300px]">
+                  <TimeToInsightChart data={defaultData} height={300} />
+                </TabsContent>
+              </Tabs>
             </CardContent>
           </Card>
+
+          {/* Footnote abaixo do card */}
+          <div className="col-span-2 mt-4"> {/* Span nas duas colunas do grid e margem superior */}
+            <p className="text-xs text-muted-foreground/80 italic leading-relaxed">
+              The data presented is based on consolidated insights and directional trends reported by McKinsey, MIT Sloan, PwC, and Accenture between 2020 and 2023. While results may vary by implementation, these benchmarks reflect the strategic gains commonly associated with enterprise AI adoption.
+            </p>
+          </div>
         </div>
       </div>
     </section>
