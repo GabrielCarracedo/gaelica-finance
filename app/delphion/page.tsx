@@ -19,6 +19,7 @@ import {
 import Image from "next/image"
 import { useTheme } from "next-themes"
 import { DelphionLogo } from "@/components/delphion-logo"
+import { ContactButtonsDelphion } from "@/components/ContactButtonsDelphion"
 
 export default function DelphionPage() {
   const { theme, resolvedTheme } = useTheme()
@@ -209,18 +210,7 @@ export default function DelphionPage() {
               <p className="text-lg text-muted-foreground mb-8">
                 We are offering early access to selected corporate partners and strategy teams.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="gap-2 bg-[#9b9b9b] hover:bg-[#9b9b9b]/90 text-background" asChild>
-                  <Link href="/contact">
-                    Request Access <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button size="lg" variant="outline" className="gap-2 border-[#9b9b9b] text-[#9b9b9b] hover:bg-[#9b9b9b]/10" asChild>
-                  <Link href="/contact">
-                    Talk to Our Team <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
+              <ContactButtonsDelphion />
             </div>
           </div>
         </section>

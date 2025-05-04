@@ -5,6 +5,7 @@ import { Building2, Users, BookOpen, ArrowRight, RefreshCw, ChevronRight, CheckC
 import Link from "next/link"
 import React from 'react'
 import { SiteFooter } from "@/components/site-footer"
+import { ContactButtons } from "@/components/ContactButtons"
 
 interface ErrorBoundaryProps {
   children: React.ReactNode;
@@ -453,32 +454,7 @@ export default function CorporateGovernanceAdvisory() {
                 <p className="text-xl text-muted-foreground mb-8">
                   Let's discuss how we can help you build a governance framework that drives value and enables sustainable growth.
                 </p>
-                <div className="bg-card rounded-lg p-8 shadow-sm border">
-                  <div className="flex flex-col items-center gap-4">
-                    <div className="p-3 bg-primary/10 rounded-full">
-                      <MessageSquare className="h-8 w-8 text-primary" />
-                    </div>
-                    <h3 className="text-2xl font-bold">Contact Us</h3>
-                    <div className="text-center space-y-2">
-                      <p className="font-semibold">Gabriel C. Carracedo</p>
-                      <p className="text-muted-foreground">Partner, Gaelica Finance</p>
-                      <div className="space-y-1">
-                        <p className="flex items-center justify-center gap-2">
-                          <span className="text-muted-foreground">📞</span>
-                          <a href="tel:+5511999168448" className="hover:text-primary">+55 (11) 99916-8448</a>
-                        </p>
-                        <p className="flex items-center justify-center gap-2">
-                          <span className="text-muted-foreground">📧</span>
-                          <a href="mailto:gcarracedo@gaelicafinance.com" className="hover:text-primary">gcarracedo@gaelicafinance.com</a>
-                        </p>
-                        <p className="flex items-center justify-center gap-2">
-                          <span className="text-muted-foreground">🌐</span>
-                          <a href="https://www.gaelicafinance.com" target="_blank" rel="noopener noreferrer" className="hover:text-primary">www.gaelicafinance.com</a>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <ContactButtons />
               </div>
             </div>
           </section>

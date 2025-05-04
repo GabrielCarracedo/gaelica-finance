@@ -27,6 +27,7 @@ import {
 } from "lucide-react"
 import { useTheme } from "next-themes"
 import { SiteFooter } from "@/components/site-footer"
+import { ContactButtons } from "@/components/ContactButtons"
 
 // Add type declarations for JSX elements
 declare global {
@@ -570,11 +571,7 @@ export default function InvestmentStrategyPage() {
                 <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
                   Let's work together to create a tailored investment strategy that aligns with your business goals and market opportunities.
                 </p>
-                <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
-                  <Link href="/contact">
-                    Contact Us
-                  </Link>
-                </Button>
+                <ContactButtons />
               </div>
             </div>
           </div>

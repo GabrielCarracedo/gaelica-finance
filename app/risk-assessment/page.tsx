@@ -25,6 +25,7 @@ import {
   FileSpreadsheet,
   Eye
 } from "lucide-react"
+import { ContactButtons } from "@/components/ContactButtons"
 
 export default function RiskAssessmentPage() {
   useEffect(() => {
@@ -438,41 +439,12 @@ export default function RiskAssessmentPage() {
         {/* Contact Section */}
         <section className="py-16 bg-background">
           <div className="container">
-            <div className="max-w-3xl mx-auto bg-card p-8 rounded-lg border border-border">
-              <h2 className="text-2xl font-bold text-foreground mb-6">Ready to Gain Clarity on Risk?</h2>
-              <div className="flex flex-col md:flex-row gap-8 items-start">
-                <div className="flex-1">
-                  <p className="text-muted-foreground mb-4">
-                    Let us help you transform uncertainty into strategic advantage. Contact us to discuss how our risk assessment approach can benefit your organization.
-                  </p>
-                  <div className="space-y-4">
-                    <div>
-                      <h3 className="font-semibold">Gabriel C. Carracedo</h3>
-                      <p className="text-sm text-muted-foreground">Partner, Gaelica Finance</p>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <span>📞</span>
-                      <span>+55 (11) 99916-8448</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <span>📧</span>
-                      <span>gcarracedo@gaelicafinance.com</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <span>🌐</span>
-                      <span>www.gaelicafinance.com</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex-shrink-0">
-                  <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
-                    <Link href="/contact">
-                      Contact Us
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </div>
-              </div>
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-3xl font-bold text-foreground mb-4">Ready to Gain Clarity on Risk?</h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                Let us help you transform uncertainty into strategic advantage. Contact us to discuss how our risk assessment approach can benefit your organization.
+              </p>
+              <ContactButtons />
             </div>
           </div>
         </section>

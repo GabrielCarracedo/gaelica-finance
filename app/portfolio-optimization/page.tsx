@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button"
 import { SiteFooter } from "@/components/site-footer"
 import Link from "next/link"
 import { PieChart, TrendingUp, LineChart, Layers, Shield, Scale, Briefcase, Compass, Brain, Building, ArrowRight, ChevronRight, CheckCircle, Settings, DollarSign, Wallet, Calculator, AlertTriangle, ChartBar, Target, Zap, BarChart3, Leaf } from "lucide-react"
+import { ContactButtons } from "@/components/ContactButtons"
 
 export default function PortfolioOptimizationPage() {
   useEffect(() => {
@@ -688,11 +689,7 @@ export default function PortfolioOptimizationPage() {
               <p className="text-lg text-muted-foreground mb-8">
                 Let's work together to develop a strategic portfolio that aligns with your financial goals and risk tolerance.
               </p>
-              <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
-                <Link href="/contact">
-                  Contact Us
-                </Link>
-              </Button>
+              <ContactButtons />
             </div>
           </div>
         </section>

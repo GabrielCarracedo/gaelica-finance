@@ -21,6 +21,7 @@ import {
 } from "lucide-react"
 import { useTheme } from "next-themes"
 import { SiteFooter } from "@/components/site-footer"
+import { ContactButtons } from "@/components/ContactButtons"
 
 // Business Cycle Curve Component
 function BusinessCycleCurve() {
@@ -608,35 +609,12 @@ export default function StrategicTransactionsPage() {
         {/* Contact Section */}
         <section id="contact" className="py-16 bg-card">
           <div className="container">
-            <div className="max-w-3xl mx-auto bg-background p-8 rounded-lg border border-border">
-              <h2 className="text-3xl font-bold text-foreground mb-6 text-center">Contact Our M&A Team</h2>
-
-              <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-8">
-                <div className="text-center">
-                  <h3 className="text-xl font-bold text-foreground mb-2">Gabriel C Carracedo</h3>
-                  <p className="text-muted-foreground mb-4">Partner, Gaelica Finance</p>
-
-                  <div className="space-y-2">
-                    <p className="text-muted-foreground flex items-center justify-center">
-                      <span className="mr-2">📞</span> +55 (11) 99916-8448
-                    </p>
-                    <p className="text-muted-foreground flex items-center justify-center">
-                      <span className="mr-2">📧</span> gcarracedo@gaelicafinance.com
-                    </p>
-                    <p className="text-muted-foreground flex items-center justify-center">
-                      <span className="mr-2">🌐</span> www.gaelicafinance.com
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex justify-center">
-                <Button size="lg" className="gap-2 bg-[#9b9b9b] hover:bg-[#9b9b9b]/90 text-background" asChild>
-                  <Link href="#cta">
-                    Schedule a Consultation <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-3xl font-bold text-foreground mb-4">Contact Our M&A Team</h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                Ready to get started? Our team is here to help you navigate the complexities of strategic transactions.
+              </p>
+              <ContactButtons />
             </div>
           </div>
         </section>

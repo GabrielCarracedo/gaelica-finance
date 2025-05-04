@@ -17,6 +17,7 @@ import {
   ArrowLeft,
 } from "lucide-react"
 import { SiteFooter } from "@/components/site-footer"
+import { ContactButtons } from "@/components/ContactButtons"
 
 export default function AIStrategyPage() {
   useEffect(() => {
@@ -220,11 +221,7 @@ export default function AIStrategyPage() {
               <p className="text-lg text-muted-foreground mb-8">
                 Let's identify where AI can move the needle in your business — and make it real.
               </p>
-              <Button size="lg" className="gap-2" asChild>
-                <Link href="/contact">
-                  Get in Touch <ArrowRight className="h-4 w-4" />
-                </Link>
-              </Button>
+              <ContactButtons />
             </div>
           </div>
         </section>

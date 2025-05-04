@@ -17,6 +17,7 @@ import {
 } from "lucide-react"
 import { useTheme } from "next-themes"
 import { SiteFooter } from "@/components/site-footer"
+import { ContactButtons } from "@/components/ContactButtons"
 
 export default function BusinessValuationPage() {
   const { resolvedTheme } = useTheme()
@@ -514,27 +515,7 @@ export default function BusinessValuationPage() {
               <p className="text-lg text-muted-foreground mb-8">
                 Ready to get started? Our team is here to help you navigate the complexities of business valuation.
               </p>
-
-              <div className="flex flex-col items-center gap-4">
-                <div className="flex items-center gap-2">
-                  <span className="text-muted-foreground">📞</span>
-                  <a href="tel:+5511999168448" className="text-foreground hover:text-foreground/80">
-                    +55 (11) 99916-8448
-                  </a>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-muted-foreground">📧</span>
-                  <a href="mailto:gcarracedo@gaelicafinance.com" className="text-foreground hover:text-foreground/80">
-                    gcarracedo@gaelicafinance.com
-                  </a>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-muted-foreground">🌐</span>
-                  <a href="https://www.gaelicafinance.com" className="text-foreground hover:text-foreground/80">
-                    www.gaelicafinance.com
-                  </a>
-                </div>
-              </div>
+              <ContactButtons />
             </div>
           </div>
         </section>

@@ -5,6 +5,7 @@ import { BarChart3, Calculator, FileText, Layers, LineChart, PieChart, Scale, Sh
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { SiteFooter } from "@/components/site-footer"
+import { ContactButtons } from "@/components/ContactButtons"
 
 export default function FinancialComplexInstruments() {
   useEffect(() => {
@@ -608,13 +609,7 @@ export default function FinancialComplexInstruments() {
               <p className="body-lg text-muted-foreground mb-8">
                 Contact us to discuss how we can help with your complex financial instruments
               </p>
-              <div className="flex flex-col items-center gap-4">
-                <p className="text-muted-foreground">Gabriel C Carracedo</p>
-                <p className="text-muted-foreground">Partner, Gaelica Finance</p>
-                <p className="text-muted-foreground">📞 +55 (11) 99916-8448</p>
-                <p className="text-muted-foreground">📧 gcarracedo@gaelicafinance.com</p>
-                <p className="text-muted-foreground">🌐 www.gaelicafinance.com</p>
-              </div>
+              <ContactButtons />
             </div>
           </div>
         </section>

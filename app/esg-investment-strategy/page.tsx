@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/site-footer"
 import Link from "next/link"
 import { Leaf, ArrowRight, BarChart3, PieChart, TrendingUp, LineChart, Layers, Shield, Scale, Briefcase, Compass, Brain, Building } from "lucide-react"
 import Image from "next/image"
+import { ContactButtons } from "@/components/ContactButtons"
 
 export default function ESGInvestmentStrategyPage() {
   useEffect(() => {
@@ -292,11 +293,7 @@ export default function ESGInvestmentStrategyPage() {
               <p className="text-lg text-muted-foreground mb-8">
                 Let's work together to create a sustainable investment strategy that aligns with your business goals and ESG objectives.
               </p>
-              <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
-                <Link href="/contact">
-                  Contact Us
-                </Link>
-              </Button>
+              <ContactButtons />
             </div>
           </div>
         </section>

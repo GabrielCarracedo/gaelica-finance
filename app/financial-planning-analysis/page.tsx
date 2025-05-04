@@ -4,7 +4,8 @@ import React, { useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { SiteFooter } from "@/components/site-footer"
 import Link from "next/link"
-import { BarChart3, TrendingUp, LineChart, Layers, Shield, Scale, Briefcase, Compass, Brain, Building, ArrowRight, ChevronRight, CheckCircle, Settings, DollarSign, Wallet, Calculator, AlertTriangle, ChartBar, Target, Zap, Leaf, LineChart as LineChartIcon, Search, Database, Lightbulb } from "lucide-react"
+import { BarChart3, TrendingUp, LineChart, Layers, Shield, Scale, Briefcase, Compass, Brain, Building, ArrowRight, ChevronRight, CheckCircle, Settings, DollarSign, Wallet, Calculator, AlertTriangle, ChartBar, Target, Zap, Leaf, LineChart as LineChartIcon, Search, Database, Lightbulb, Mail, MessageSquare } from "lucide-react"
+import { ContactButtons } from "@/components/ContactButtons"
 
 export default function FinancialPlanningAnalysisPage() {
   useEffect(() => {
@@ -629,11 +630,7 @@ export default function FinancialPlanningAnalysisPage() {
               <p className="text-lg text-muted-foreground mb-8">
                 Let's work together to develop a comprehensive financial planning and analysis strategy that drives your business forward.
               </p>
-              <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
-                <Link href="/contact">
-                  Contact Us
-                </Link>
-              </Button>
+              <ContactButtons />
             </div>
           </div>
         </section>
