@@ -103,7 +103,7 @@ export function CallToAction() {
               </a>
               {/* E-mail */}
               <a
-                href="mailto:contact@gaelicafinance.com?subject=Contact%20via%20Gaelica%20website&body=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20Gaelica%20Finance%27s%20services."
+                href="mailto:contact@gaelicafinance.com?subject=Contato%20via%20site%20da%20Gaelica&body=Olá%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Gaelica%20Finance."
                 className="flex items-center justify-center gap-2 bg-muted hover:bg-muted/80 text-foreground font-bold py-3 px-6 rounded-lg border border-border transition"
                 style={{ minWidth: 160 }}
               >
