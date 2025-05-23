@@ -1,8 +1,29 @@
+"use client"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { ArrowRight } from "lucide-react"
 
 export function CallToAction() {
+  const [email, setEmail] = useState("")
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setStatus("loading")
+    const res = await fetch("/api/leads", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    })
+    if (res.ok) {
+      setStatus("success")
+      setEmail("")
+    } else {
+      setStatus("error")
+    }
+  }
+
   return (
     <section id="cta" className="py-20 bg-background relative overflow-hidden">
       {/* Background elements */}
@@ -25,23 +46,38 @@ export function CallToAction() {
             services.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <Input
               type="email"
               placeholder="Enter your email"
               className="bg-card border-border text-foreground placeholder:text-muted-foreground"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              required
             />
-            <Button className="gap-2 bg-[#9b9b9b] hover:bg-[#9b9b9b]/90 text-background">
-              Get Started <ArrowRight className="h-4 w-4" />
+            <Button
+              type="submit"
+              className="gap-2 bg-[#9b9b9b] hover:bg-[#9b9b9b]/90 text-background"
+              disabled={status === "loading"}
+            >
+              {status === "loading" ? "Sending..." : "Get Started"} <ArrowRight className="h-4 w-4" />
             </Button>
-          </div>
+          </form>
+
+          {/* Mensagens de feedback */}
+          {status === "success" && (
+            <p className="text-green-600 mt-2">Thank you! We'll be in touch soon.</p>
+          )}
+          {status === "error" && (
+            <p className="text-red-600 mt-2">There was an error. Please try again.</p>
+          )}
 
           <div className="my-4 flex flex-col items-center">
             <span className="text-muted-foreground text-sm mb-2">or</span>
             <div className="flex flex-col sm:flex-row gap-4">
               {/* WhatsApp */}
               <a
-                href="https://wa.me/5511999168448?text=Hello%2C%20I%27d%20like%20to%20know%20more%20about%20Gaelica%20Finance%27s%20services."
+                href="https://wa.me/551130619898?text=Olá%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Gaelica%20Finance."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 bg-muted hover:bg-muted/80 text-foreground font-bold py-3 px-6 rounded-lg border border-border transition"
