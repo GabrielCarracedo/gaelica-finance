@@ -2,11 +2,11 @@ import React from "react";
 
 export function ContactButtons() {
   // Troque o número do WhatsApp aqui quando quiser!
-  const whatsappNumber = "5511999168448";
-  const whatsappMessage = "Hello, I'd like to know more about Gaelica Finance's services.";
+  const whatsappNumber = "551130619898";
+  const whatsappMessage = "Olá, gostaria de saber mais sobre os serviços da Gaelica Finance.";
   const email = "contact@gaelicafinance.com";
-  const subject = "Contact via Gaelica website";
-  const body = "Hello, I would like to know more about Gaelica Finance's services.";
+  const subject = "Contato via site da Gaelica";
+  const body = "Olá, gostaria de saber mais sobre os serviços da Gaelica Finance.";
 
   return (
     <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -1,11 +1,11 @@
 import React from "react";
 
 export function ContactButtonsDelphion() {
-  const whatsappNumber = "5511999168448";
-  const whatsappMessage = "Hello, I'd like to know more about Delphion.";
+  const whatsappNumber = "551130619898";
+  const whatsappMessage = "Olá, gostaria de saber mais sobre o Delphion.";
   const email = "contact@delphion.ai";
-  const subject = "Contact via Delphion website";
-  const body = "Hello, I would like to know more about Delphion.";
+  const subject = "Contato via site do Delphion";
+  const body = "Olá, gostaria de saber mais sobre o Delphion.";
   const site = "https://www.delphion.ai";
 
   return (
